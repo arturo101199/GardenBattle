@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class AntSearchBaseState : State
+public class AntDie : State
 {
     public override void OnStateEnter()
     {

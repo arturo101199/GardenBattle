@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class #SCRIPTNAME# : SubMachineState
 {
-    protected override void OnStateEnter()
+    public override void OnStateEnter()
     {
     #NOTRIM#
     }
 
-    protected override void OnStateExit()
+    public override void OnStateExit()
     {
     #NOTRIM#
     }
 
-    protected override void OnStateUpdate()
+    public override void OnStateUpdate()
     {
     #NOTRIM#
     }

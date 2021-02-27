@@ -5,8 +5,10 @@ public class Transition
 {
     [SerializeField] State targetNode;
 
-    public void isTriggered()
-    {
+    public State TargetNode { get => targetNode; }
 
+    public bool isTriggered()
+    {
+        return false;
     }
 }

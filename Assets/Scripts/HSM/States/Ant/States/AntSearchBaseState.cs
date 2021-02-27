@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public class AntPatrolling : SubMachineState
+public class AntSearchBaseState : State
 {
     public override void OnStateEnter()
     {
-    
+        print("Entro en search base");
     }
 
     public override void OnStateExit()
@@ -14,6 +14,6 @@ public class AntPatrolling : SubMachineState
 
     public override void OnStateUpdate()
     {
-    
+        print("Update search base");
     }
 }
