@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-public class InitialStateSelectorSimpleCondition : InitialStateSelector
+public class StateSelectorSimpleCondition : StateSelector
 {
     [SerializeField] Condition condition;
     [SerializeField] State stateTrue;
     [SerializeField] State stateFalse;
 
-    public override State SelectInitialNode()
+    public override State SelectNode()
     {
         return condition.EvaluateCondition() ? stateTrue : stateFalse;
     }

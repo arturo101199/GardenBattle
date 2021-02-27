@@ -3,14 +3,14 @@
 public class HierarchicalStateMachine : MonoBehaviour
 {
 
-    [SerializeField] protected InitialStateSelector initialStateSelector;
+    [SerializeField] protected StateSelector initialStateSelector;
     [SerializeField] protected Transition[] transitions;
 
     [SerializeField] State currentState;
 
     private void Start()
     {
-        currentState = initialStateSelector.SelectInitialNode();
+        currentState = initialStateSelector.SelectNode();
         currentState.OnStateEnter();
     }
 

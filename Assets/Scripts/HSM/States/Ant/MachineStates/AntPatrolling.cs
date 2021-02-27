@@ -5,7 +5,7 @@ public class AntPatrolling : SubMachineState
     public override void OnStateEnter()
     {
         print("Entro en Patrolling");
-        currentState = initialStateSelector.SelectInitialNode();
+        currentState = initialStateSelector.SelectNode();
         currentState.OnStateEnter();
     }
 
