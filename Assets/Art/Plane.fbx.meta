@@ -1,20 +1,8 @@
 fileFormatVersion: 2
-guid: 42e92701e152b444490841002a84901f
+guid: f7fd5ffd86ea21742bf7b95e95303e63
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable:
-  - first:
-      74: -4449717305648701825
-    second: Armature|0TPose
-  - first:
-      74: 4723146814002874508
-    second: Armature|Attack
-  - first:
-      74: -8945691123924629249
-    second: Armature|Idle
-  - first:
-      74: -5913978943142729594
-    second: Armature|Move
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -43,7 +31,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1

@@ -1,0 +1,19 @@
+using UnityEngine;
+
+public class #SCRIPTNAME# : State
+{
+    protected override void OnStateEnter()
+    {
+    #NOTRIM#
+    }
+
+    protected override void OnStateExit()
+    {
+    #NOTRIM#
+    }
+
+    protected override void OnStateUpdate()
+    {
+    #NOTRIM#
+    }
+}
