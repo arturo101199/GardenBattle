@@ -4,16 +4,16 @@ public class AntSearchBaseState : State
 {
     public override void OnStateEnter()
     {
-        print("Entro en search base");
+        base.OnStateEnter();
     }
 
     public override void OnStateExit()
     {
-    
+        base.OnStateExit();
     }
 
     public override void OnStateUpdate()
     {
-        print("Update search base");
+        base.OnStateUpdate();
     }
 }

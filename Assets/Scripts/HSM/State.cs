@@ -1,11 +1,36 @@
 ﻿using UnityEngine;
 
-public abstract class State : MonoBehaviour
+public class State : MonoBehaviour
 {
     [SerializeField] protected Transition[] transitions;
-    protected State parentState;
+    protected IParentState parentState;
 
-    public abstract void OnStateEnter();
-    public abstract void OnStateExit();
-    public abstract void OnStateUpdate();
+    public virtual void OnStateEnter()
+    {
+        print("entro en " + name);
+    }
+    public virtual void OnStateExit()
+    {
+        print("salgo de " + name);
+        
+    }
+    public virtual void OnStateUpdate()
+    {
+        print("update de " + name);
+        foreach (Transition transition in transitions)
+        {
+            if (transition.isTriggered())
+            {
+                OnStateExit();
+                parentState.SetCurrentState(transition.TargetNode);
+                transition.TargetNode.SetParentState(parentState);
+                return;
+            }
+        }
+    }
+    public virtual void SetParentState(IParentState state)
+    {
+        parentState = state;
+    }
 }
+

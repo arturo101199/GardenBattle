@@ -2,7 +2,7 @@
 
 public class IsWeakCondition : Condition
 {
-    [SerializeField] bool isWeak;
+    [SerializeField] bool isWeak = false;
 
     public override bool EvaluateCondition()
     {

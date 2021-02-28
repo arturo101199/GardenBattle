@@ -3,8 +3,8 @@
 [System.Serializable]
 public class Transition
 {
-    [SerializeField] State targetNode;
-    [SerializeField] Condition condition;
+    [SerializeField] State targetNode = null;
+    [SerializeField] Condition condition = null;
 
     public State TargetNode { get => targetNode; }
 

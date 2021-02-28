@@ -4,29 +4,17 @@ public class AntPatrolling : SubMachineState
 {
     public override void OnStateEnter()
     {
-        print("Entro en Patrolling");
-        currentState = initialStateSelector.SelectNode();
-        currentState.OnStateEnter();
+        base.OnStateEnter();
     }
 
     public override void OnStateExit()
     {
-        currentState.OnStateExit();
+        base.OnStateExit();
+
     }
 
     public override void OnStateUpdate()
     {
-        print("Update Patrolling");
-        foreach (Transition transition in transitions)
-        {
-            if (transition.isTriggered())
-            {
-                currentState.OnStateExit();
-                currentState = transition.TargetNode;
-                currentState.OnStateEnter();
-                return;
-            }
-        }
-        currentState.OnStateUpdate();
+        base.OnStateUpdate();
     }
 }

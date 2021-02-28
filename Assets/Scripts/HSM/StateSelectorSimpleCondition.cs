@@ -2,9 +2,9 @@
 
 public class StateSelectorSimpleCondition : StateSelector
 {
-    [SerializeField] Condition condition;
-    [SerializeField] State stateTrue;
-    [SerializeField] State stateFalse;
+    [SerializeField] Condition condition = null;
+    [SerializeField] State stateTrue = null;
+    [SerializeField] State stateFalse = null;
 
     public override State SelectNode()
     {

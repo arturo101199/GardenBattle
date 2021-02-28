@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class HierarchicalStateMachine : MonoBehaviour
+public class HierarchicalStateMachine : MonoBehaviour, IParentState
 {
 
     [SerializeField] protected StateSelector initialStateSelector;
@@ -8,10 +8,16 @@ public class HierarchicalStateMachine : MonoBehaviour
 
     [SerializeField] State currentState;
 
+    public void SetCurrentState(State state)
+    {
+        currentState = state;
+    }
+
     private void Start()
     {
         currentState = initialStateSelector.SelectNode();
         currentState.OnStateEnter();
+        currentState.SetParentState(this);
     }
 
     private void Update()

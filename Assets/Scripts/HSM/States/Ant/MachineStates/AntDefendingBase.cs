@@ -4,16 +4,17 @@ public class AntDefendingBase : SubMachineState
 {
     public override void OnStateEnter()
     {
-        print("defending base");
+        base.OnStateEnter();
     }
 
     public override void OnStateExit()
     {
-    
+        base.OnStateExit();
+
     }
 
     public override void OnStateUpdate()
     {
-    
+        base.OnStateUpdate();
     }
 }
