@@ -4,16 +4,16 @@ public class #SCRIPTNAME# : State
 {
     public override void OnStateEnter()
     {
-    #NOTRIM#
+        base.OnStateEnter();
     }
 
     public override void OnStateExit()
     {
-    #NOTRIM#
+        base.OnStateExit();
     }
 
     public override void OnStateUpdate()
     {
-    #NOTRIM#
+        base.OnStateUpdate();
     }
 }

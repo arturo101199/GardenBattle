@@ -17,17 +17,21 @@ public class State : MonoBehaviour
     public virtual void OnStateUpdate()
     {
         print("update de " + name);
+        checkTransitions();
+    }
+
+    protected virtual void checkTransitions()
+    {
         foreach (Transition transition in transitions)
         {
             if (transition.isTriggered())
             {
-                OnStateExit();
-                parentState.SetCurrentState(transition.TargetNode);
-                transition.TargetNode.SetParentState(parentState);
+                transition.MakeStateTransition(this, parentState);
                 return;
             }
         }
     }
+
     public virtual void SetParentState(IParentState state)
     {
         parentState = state;

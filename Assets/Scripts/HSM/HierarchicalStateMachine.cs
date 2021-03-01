@@ -2,37 +2,34 @@
 
 public class HierarchicalStateMachine : MonoBehaviour, IParentState
 {
-
     [SerializeField] protected StateSelector initialStateSelector;
     [SerializeField] protected Transition[] transitions;
 
-    [SerializeField] State currentState;
+    [SerializeField] State activeState;
 
     public void SetCurrentState(State state)
     {
-        currentState = state;
+        activeState = state;
     }
 
     private void Start()
     {
-        currentState = initialStateSelector.SelectNode();
-        currentState.OnStateEnter();
-        currentState.SetParentState(this);
+        activeState = initialStateSelector.SelectNode();
+        activeState.OnStateEnter();
+        activeState.SetParentState(this);
     }
 
-    private void Update()
+    public void UpdateMachine()
     {
         foreach (Transition transition in transitions)
         {
-            if (transition.isTriggered())
+            if (transition.isTriggered() && transition.TargetNode != activeState)
             {
-                currentState.OnStateExit();
-                currentState = transition.TargetNode;
-                currentState.OnStateEnter();
+                transition.MakeHierachicalStateMachineTransition(this, activeState);
                 return;
             }
         }
-        currentState.OnStateUpdate();
+        activeState.OnStateUpdate();
     }
 
 }

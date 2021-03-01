@@ -2,47 +2,46 @@
 
 public class SubMachineState : State, IParentState
 {
-    protected State currentState;
+    protected State activeState;
 
     [SerializeField] protected StateSelector initialStateSelector;
 
     public override void OnStateEnter()
     {
         base.OnStateEnter();
-        currentState = initialStateSelector.SelectNode();
-        currentState.OnStateEnter();
-        currentState.SetParentState(this);
+        activeState = initialStateSelector.SelectNode();
+        activeState.OnStateEnter();
+        activeState.SetParentState(this);
     }
 
     public override void OnStateUpdate()
     {
         print("Update de " + name);
+        checkTransitions();
+        activeState.OnStateUpdate();
+    }
+
+    protected override void checkTransitions()
+    {
         foreach (Transition transition in transitions)
         {
             if (transition.isTriggered())
             {
-                OnStateExit();
-                parentState.SetCurrentState(transition.TargetNode);
-                currentState = transition.TargetNode;
-                currentState.OnStateEnter();
+                transition.MakeSubMachineStateTransition(this, parentState);
                 return;
             }
         }
-        currentState.OnStateUpdate();
     }
 
     public override void OnStateExit()
     {
         base.OnStateExit();
-        currentState.OnStateExit();
-        
-
+        activeState.OnStateExit();
     }
-
 
     public void SetCurrentState(State state)
     {
-        currentState = state;
+        activeState = state;
     }
 }
 

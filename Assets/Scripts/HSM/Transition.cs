@@ -14,4 +14,29 @@ public class Transition
             return condition.EvaluateCondition();
         return false;
     }
+
+    public void MakeStateTransition(State currentState, IParentState parentState)
+    {
+        MakeBaseTransition(currentState, parentState);
+    }
+
+    public void MakeSubMachineStateTransition(SubMachineState currentState, IParentState parentState)
+    {
+        MakeBaseTransition(currentState, parentState);
+        currentState.SetCurrentState(targetNode);
+    }
+    public void MakeHierachicalStateMachineTransition(HierarchicalStateMachine currentState, State activeState)
+    {
+        activeState.OnStateExit();
+        currentState.SetCurrentState(targetNode);
+        activeState.OnStateEnter();
+    }
+
+    void MakeBaseTransition(State currentState, IParentState parentState)
+    {
+        currentState.OnStateExit();
+        parentState.SetCurrentState(targetNode);
+        targetNode.SetParentState(parentState);
+        targetNode.OnStateEnter();
+    }
 }
