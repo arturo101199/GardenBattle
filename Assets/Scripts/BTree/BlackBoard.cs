@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class BlackBoard : MonoBehaviour
+public class Blackboard : MonoBehaviour
 {
     Dictionary<string, object> blackBoard = new Dictionary<string, object>();
 
