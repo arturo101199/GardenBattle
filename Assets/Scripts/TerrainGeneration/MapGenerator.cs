@@ -10,6 +10,7 @@ public class MapGenerator : MonoBehaviour
     [Range(0,6)]
     public int levelOfDetail;
     public float noiseScale;
+    public float planeScale;
 
     public int octaves;
     [Range(0,1)]
@@ -24,6 +25,11 @@ public class MapGenerator : MonoBehaviour
 
     public bool autoUpdate;
     public TerrainType[] regions;
+
+    private void Start()
+    {
+        GenerateMap();
+    }
 
     public void GenerateMap()
     {
@@ -56,7 +62,7 @@ public class MapGenerator : MonoBehaviour
         }
         else if(drawMode == DrawMode.Mesh)
         {
-            display.DrawMesh(MeshGenerator.GenerateTerrainMesh(noiseMap, meshHeightMultiplier, meshHeightCurve, levelOfDetail), TextureGenerator.TextureFromColourMap(colourMap, mapChunkSize, mapChunkSize));
+            display.DrawMesh(MeshGenerator.GenerateTerrainMesh(noiseMap, meshHeightMultiplier, meshHeightCurve, levelOfDetail), TextureGenerator.TextureFromColourMap(colourMap, mapChunkSize, mapChunkSize), planeScale);
         }
     }
 

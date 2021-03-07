@@ -2,7 +2,7 @@
 
 public class DivideCircle : MonoBehaviour
 {
-    [SerializeField] Transform[] elements;
+    [SerializeField] Transform[] elements = null;
     [SerializeField] float radius = 5;
 
     void Start()
