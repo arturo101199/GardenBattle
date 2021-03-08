@@ -21,20 +21,37 @@ public class MapDisplay : MonoBehaviour
     {
         if(plane == null)
         {
-            plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
-            plane.transform.SetParent(surface.transform);
-            var flags = StaticEditorFlags.NavigationStatic;
-            GameObjectUtility.SetStaticEditorFlags(plane, flags);
+            initializePlane(scale);
         }
+
+        Mesh mesh = createMesh(meshData, texture);
+
+        bakeNavMesh(mesh);
+        
+    }
+
+    void initializePlane(float scale)
+    {
+        plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
+        plane.transform.SetParent(surface.transform);
         plane.transform.localScale = Vector3.one * scale;
-        MeshFilter MeshFilter = plane.GetComponent<MeshFilter>();
+        plane.layer = LayerMask.NameToLayer("Ground");
+    }
+
+    void bakeNavMesh(Mesh mesh)
+    {
+        plane.GetComponent<MeshCollider>().sharedMesh = mesh;
+        surface.BuildNavMesh();
+    }
+
+    Mesh createMesh(MeshData meshData, Texture2D texture)
+    {
+        MeshFilter meshFilter = plane.GetComponent<MeshFilter>();
         MeshRenderer meshRendered = plane.GetComponent<MeshRenderer>();
         meshRendered.sharedMaterial = material;
-        MeshFilter.sharedMesh = meshData.CreateMesh();
+        meshFilter.sharedMesh = meshData.CreateMesh();
         meshRendered.sharedMaterial.SetTexture("_BaseMap", texture);
-        plane.GetComponent<MeshCollider>().sharedMesh = MeshFilter.sharedMesh;
-        surface.BuildNavMesh();
-        print(surface.GetBuildSettings().minRegionArea);
+        return meshFilter.sharedMesh;
     }
 
 }

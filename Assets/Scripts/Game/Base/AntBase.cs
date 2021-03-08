@@ -9,7 +9,7 @@ public class AntBase : MonoBehaviour, IDamageable
     void Start()
     {
         antGlobalBlackboard = AntGlobalBlackboard.Instance;
-        totalNumberOfAnts = (int)antGlobalBlackboard.GetValue("totalNumberOfAnts");
+        //totalNumberOfAnts = (int)antGlobalBlackboard.GetValue("totalNumberOfAnts");
     }
 
     public void GetDamage(float damageValue)

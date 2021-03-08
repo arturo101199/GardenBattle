@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class MapGenerator : MonoBehaviour
+public class TerrainGenerator : MonoBehaviour
 {
 
     public enum DrawMode { NoiseMap, ColourMap, Mesh};
@@ -25,11 +25,6 @@ public class MapGenerator : MonoBehaviour
 
     public bool autoUpdate;
     public TerrainType[] regions;
-
-    private void Start()
-    {
-        GenerateMap();
-    }
 
     public void GenerateMap()
     {
@@ -86,4 +81,5 @@ public class MapGenerator : MonoBehaviour
         public float height;
         public Color colour;
     }
+
 }
