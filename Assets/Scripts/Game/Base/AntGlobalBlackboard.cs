@@ -1,14 +1,14 @@
 ﻿using System;
-using UnityEngine;
 
-public class AntGlobalBlackboard : Blackboard
+public class AntGlobalBlackboard : GlobalBlackboard
 {
-    private static AntGlobalBlackboard instance;
+    protected new static AntGlobalBlackboard instance;
 
-    public static AntGlobalBlackboard Instance { get => instance; }
+    public new static AntGlobalBlackboard Instance { get => instance; }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         if (instance != null && instance != this)
         {
             Destroy(this.gameObject);
@@ -17,20 +17,13 @@ public class AntGlobalBlackboard : Blackboard
         {
             instance = this;
         }
-        DontDestroyOnLoad(this);
     }
 
-    void Start()
+    protected override void initializeBlackboard()
     {
-        initializeBlackboard();
-    }
-
-    void initializeBlackboard()
-    {
+        base.initializeBlackboard();
         AddKeyValue("resourcesEaten", 0);
         AddKeyValue("antsPatrolling", 0);
-        AddKeyValue("totalNumberOfAnts", 0);
         AddKeyValue("baseIsInDanger", false);
-        AddKeyValue("homeLocation", Vector3.zero);
     }
 }

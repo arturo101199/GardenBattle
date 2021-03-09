@@ -3,53 +3,50 @@ using UnityEngine.AI;
 
 public class BaseGenerator : MonoBehaviour
 {
-    [SerializeField] Transform[] bases = null;
     [SerializeField] LayerMask groundLayer = 0;
+    [SerializeField] float terrainSize = 48f;
+    [SerializeField] float terrainSizeOffset = 1f; //Offset for not placing bases just on the edge of the map
+    [SerializeField] BaseInfo[] baseInfos = null;
+    [SerializeField] Transform parentTransform = null;
+
+    StarterCharactersGenerator starterCharactersGenerator;
+
+    private void Awake()
+    {
+        starterCharactersGenerator = new StarterCharactersGenerator();
+    }
 
     public void PlaceBases()
     {
-        foreach (Transform myBase in bases)
+        foreach (BaseInfo baseInfo in baseInfos)
         {
-            Vector3 randomPosition = RandomUtilites.GenerateRandomInsideRectangleXZ(Vector3.zero, 48, 48);
-            NavMeshHit hit;
-            bool isValidPosition = NavMesh.SamplePosition(randomPosition, out hit, 3f, NavMesh.AllAreas);
-            while (!isValidPosition)
+            int nCharacters = (int)baseInfo.GlobalBlackboard.GetValue("totalNumberOfCharacters");
+            if(nCharacters > 0)
             {
-                randomPosition = RandomUtilites.GenerateRandomInsideRectangleXZ(Vector3.zero, 48, 48);
-                isValidPosition = NavMesh.SamplePosition(randomPosition, out hit, 3f, groundLayer);
+                GameObject myBase = Instantiate(baseInfo.BasePrefab, findBasePosition(), Quaternion.identity, parentTransform);
+                baseInfo.GlobalBlackboard.UpdateValue("homeLocation", transform.position);
+                rotateBase(myBase.transform);
+                starterCharactersGenerator.GenerateCharacters(nCharacters, baseInfo.CharacterPrefab, myBase.transform.position);
             }
-            myBase.position = hit.position;
-            rotateBase(myBase);
         }
+        FindObjectOfType<NavMeshSurface>().BuildNavMesh();
+    }
+
+    Vector3 findBasePosition()
+    {
+        Vector3 randomPosition = RandomUtilites.GenerateRandomInsideRectangleXZ(Vector3.zero, terrainSize - terrainSizeOffset, terrainSize - terrainSizeOffset);
+        NavMeshHit hit;
+        bool isValidPosition = NavMesh.SamplePosition(randomPosition, out hit, 3f, NavMesh.AllAreas);
+        while (!isValidPosition)
+        {
+            randomPosition = RandomUtilites.GenerateRandomInsideRectangleXZ(Vector3.zero, terrainSize - terrainSizeOffset, terrainSize - terrainSizeOffset);
+            isValidPosition = NavMesh.SamplePosition(randomPosition, out hit, 3f, groundLayer);
+        }
+        return hit.position;
     }
 
     void rotateBase(Transform myBase)
     {
         TransformUtilites.RotateObjectPerpendicularToTheGround(myBase, groundLayer);
-    }
-}
-
-public static class RaycastUtilites
-{
-    public static Vector3 GetGroundNormal(Vector3 position, int groundLayer)
-    {
-        Ray ray = new Ray(position, Vector3.down);
-        RaycastHit hit;
-        if(Physics.Raycast(ray, out hit, groundLayer))
-        {
-            return hit.normal;
-        }
-        return Vector3.up;
-    }
-}
-
-public static class TransformUtilites
-{
-    public static void RotateObjectPerpendicularToTheGround(Transform myObject, int groundLayer)
-    {
-        Vector3 normal = RaycastUtilites.GetGroundNormal(myObject.position, groundLayer);
-        Vector3 forward = Vector3.Cross(myObject.right, normal);
-        Quaternion lookRotation = Quaternion.LookRotation(forward, normal);
-        myObject.rotation = lookRotation;
     }
 }
