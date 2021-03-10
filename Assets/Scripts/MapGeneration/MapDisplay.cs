@@ -34,7 +34,7 @@ public class MapDisplay : MonoBehaviour
     {
         plane = GameObject.CreatePrimitive(PrimitiveType.Plane);
         plane.transform.SetParent(surface.transform);
-        plane.transform.localScale = Vector3.one * scale;
+        plane.transform.localScale = new Vector3(scale, 1f, scale);
         plane.layer = LayerMask.NameToLayer("Ground");
     }
 
