@@ -40,7 +40,7 @@ public class BaseGenerator : MonoBehaviour
         while (!isValidPosition)
         {
             randomPosition = RandomUtilites.GenerateRandomInsideRectangleXZ(Vector3.zero, terrainSize - terrainSizeOffset, terrainSize - terrainSizeOffset);
-            isValidPosition = NavMesh.SamplePosition(randomPosition, out hit, 3f, groundLayer);
+            isValidPosition = NavMesh.SamplePosition(randomPosition, out hit, 3f, NavMesh.AllAreas);
         }
         return hit.position;
     }
