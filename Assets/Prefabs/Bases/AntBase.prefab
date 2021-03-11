@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3239355242695379676}
   - component: {fileID: 3239355242695379677}
   - component: {fileID: 3239355242695379678}
+  - component: {fileID: 6288461139085979824}
   m_Layer: 0
   m_Name: AntBase
   m_TagString: Untagged
@@ -107,3 +108,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+--- !u!114 &6288461139085979824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3239355242695379679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f899946235f98b4d8c59ca95f9c7b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

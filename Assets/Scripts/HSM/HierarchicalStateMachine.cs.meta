@@ -3,7 +3,10 @@ guid: 05f87f022365c6f4b8a2a0dec2a9b968
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - initialStateSelector: {instanceID: 0}
+  - AIHandlerHSMs: {fileID: 11400000, guid: 5fd988ad208652449bb8de5354a11662, type: 2}
+  - activeState: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

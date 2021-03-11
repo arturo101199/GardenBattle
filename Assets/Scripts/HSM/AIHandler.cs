@@ -2,11 +2,16 @@
 
 public class AIHandler : MonoBehaviour
 {
-    [SerializeField] HierarchicalStateMachine[] machines = null;
+    [SerializeField] AIHandlerHSMs AIHandlerHSMs = null;
+
+    private void Start()
+    {
+        AIHandlerHSMs.ClearMachines();
+    }
 
     void Update()
     {
-        foreach (var machine in machines)
+        foreach (HierarchicalStateMachine machine in AIHandlerHSMs.Machines)
         {
             machine.UpdateMachine();
         }

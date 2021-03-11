@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.AI;
 
 public class AntFoodGeneration : MonoBehaviour
 {
-    [SerializeField] GameObject foodPrefab;
+    [SerializeField] GameObject foodPrefab = null;
+    List<Vector3> foodPositions = new List<Vector3>();
+
     public void GenerateFood()
     {
         float mapScale = FindObjectOfType<TerrainGenerator>().planeScale;
@@ -17,6 +20,7 @@ public class AntFoodGeneration : MonoBehaviour
                 spawnFood(new Vector3(i, 0f, j));
             }
         }
+        FindObjectOfType<FoodManagement>().SetFood(foodPositions);
     }
 
     void spawnFood(Vector3 position)
@@ -25,10 +29,7 @@ public class AntFoodGeneration : MonoBehaviour
         if (NavMesh.SamplePosition(position, out hit, 3f, NavMesh.AllAreas))
         {
             Instantiate(foodPrefab, hit.position, Quaternion.identity).SetActive(true);
-        }
-        else
-        {
-            print("No se pudo");
+            foodPositions.Add(hit.position);
         }
     }
 }

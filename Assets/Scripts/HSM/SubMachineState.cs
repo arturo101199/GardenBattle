@@ -16,7 +16,7 @@ public class SubMachineState : State, IParentState
 
     public override void OnStateUpdate()
     {
-        //print("Update de " + name);
+        print("Update de " + name);
         checkTransitions();
         activeState.OnStateUpdate();
     }

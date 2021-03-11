@@ -7,16 +7,16 @@ public class State : MonoBehaviour
 
     public virtual void OnStateEnter()
     {
-        //print("entro en " + name);
+        print("entro en " + name);
     }
     public virtual void OnStateExit()
     {
-        //print("salgo de " + name);
+        print("salgo de " + name);
         
     }
     public virtual void OnStateUpdate()
     {
-        //print("update de " + name);
+        print("update de " + name);
         checkTransitions();
     }
 

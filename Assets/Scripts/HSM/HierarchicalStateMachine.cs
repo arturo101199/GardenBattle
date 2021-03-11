@@ -4,6 +4,7 @@ public class HierarchicalStateMachine : MonoBehaviour, IParentState
 {
     [SerializeField] protected StateSelector initialStateSelector;
     [SerializeField] protected Transition[] transitions;
+    [SerializeField] AIHandlerHSMs AIHandlerHSMs = null;
 
     [SerializeField] State activeState;
 
@@ -17,6 +18,7 @@ public class HierarchicalStateMachine : MonoBehaviour, IParentState
         activeState = initialStateSelector.SelectNode();
         activeState.OnStateEnter();
         activeState.SetParentState(this);
+        AIHandlerHSMs.AddMachine(this);
     }
 
     public void UpdateMachine()
