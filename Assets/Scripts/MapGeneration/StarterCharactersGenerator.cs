@@ -51,7 +51,7 @@ public class StarterCharactersGenerator
         if(NavMesh.SamplePosition(position, out hit, 3f, NavMesh.AllAreas))
         {
             Quaternion lookAt = Quaternion.LookRotation(hit.position - baseLocation);
-            Object.Instantiate(character, hit.position, lookAt).SetActive(true);
+            Object.Instantiate(character, hit.position, lookAt);
             return true;
         }
         else

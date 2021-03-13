@@ -12,5 +12,6 @@ public class AntBlackboard : Blackboard
     {
         AddKeyValue("navMeshAgent", GetComponent<NavMeshAgent>());
         AddKeyValue("currentFoodLocation", Vector3.zero);
+        AddKeyValue("animator", GetComponentInChildren<Animator>());
     }
 }

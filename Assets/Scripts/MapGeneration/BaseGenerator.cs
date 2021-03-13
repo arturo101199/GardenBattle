@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.AI;
 
 public class BaseGenerator : MonoBehaviour
@@ -9,27 +10,22 @@ public class BaseGenerator : MonoBehaviour
     [SerializeField] BaseInfo[] baseInfos = null;
     [SerializeField] Transform parentTransform = null;
 
-    StarterCharactersGenerator starterCharactersGenerator;
-
-    private void Awake()
+    public List<BaseInfo> PlaceBases()
     {
-        starterCharactersGenerator = new StarterCharactersGenerator();
-    }
-
-    public void PlaceBases()
-    {
+        List<BaseInfo> basesPlaced = new List<BaseInfo>();
         foreach (BaseInfo baseInfo in baseInfos)
         {
             int nCharacters = (int)baseInfo.GlobalBlackboard.GetValue("totalNumberOfCharacters");
             if(nCharacters > 0)
             {
                 GameObject myBase = Instantiate(baseInfo.BasePrefab, findBasePosition(), Quaternion.identity, parentTransform);
-                baseInfo.GlobalBlackboard.UpdateValue("homeLocation", transform.position);
+                baseInfo.GlobalBlackboard.UpdateValue("baseLocation", myBase.transform.position);
                 rotateBase(myBase.transform);
-                starterCharactersGenerator.GenerateCharacters(nCharacters, baseInfo.CharacterPrefab, myBase.transform.position);
+                basesPlaced.Add(baseInfo);
             }
         }
         FindObjectOfType<NavMeshSurface>().BuildNavMesh();
+        return basesPlaced;
     }
 
     Vector3 findBasePosition()

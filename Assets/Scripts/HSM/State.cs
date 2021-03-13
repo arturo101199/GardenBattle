@@ -4,6 +4,12 @@ public class State : MonoBehaviour
 {
     [SerializeField] protected Transition[] transitions;
     protected IParentState parentState;
+    protected Blackboard blackboard;
+
+    protected virtual void Awake()
+    {
+        blackboard = GetComponentInParent<Blackboard>();
+    }
 
     public virtual void OnStateEnter()
     {
@@ -16,7 +22,7 @@ public class State : MonoBehaviour
     }
     public virtual void OnStateUpdate()
     {
-        print("update de " + name);
+        //print("update de " + name);
         checkTransitions();
     }
 

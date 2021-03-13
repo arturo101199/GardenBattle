@@ -20,7 +20,9 @@ public class FoodManagement : MonoBehaviour
 
     public Vector3 GetFood()
     {
-        return sortedFoodPositions.Pop();
+        if(sortedFoodPositions.Count > 0)
+            return sortedFoodPositions.Pop();
+        return Vector3.zero;
     }
 
     public void AddFood(Vector3 position)
