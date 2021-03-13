@@ -34,7 +34,6 @@ public class EatFood : BNode
         {
             anim.SetTrigger("Attack");
             agent.isStopped = true;
-            print("agent stopped");
             isEating = true;
         }
         return NodeState.RUNNING;
@@ -58,6 +57,5 @@ public class EatFood : BNode
         timer = 0f;
         isEating = false;
         agent.isStopped = false;
-        print("agent not stoped");
     }
 }

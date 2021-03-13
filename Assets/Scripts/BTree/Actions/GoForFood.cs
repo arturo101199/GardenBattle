@@ -14,7 +14,6 @@ public class GoForFood : BNode
     {
         Vector3 nextFood = (Vector3)blackboard.GetValue("currentFoodLocation");
         agent.SetDestination(nextFood);
-        print("SetDestination");
         return NodeState.SUCCESS;
     }
 

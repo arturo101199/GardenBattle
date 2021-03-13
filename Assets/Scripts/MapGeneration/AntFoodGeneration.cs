@@ -13,9 +13,9 @@ public class AntFoodGeneration : MonoBehaviour
         const int mapChunkSize = 241;
         float finalScale = (mapChunkSize-1) * mapScale;
         int halfScale = (int)(finalScale / 2);
-        for (int i = -halfScale; i < halfScale; i += 2)
+        for (float i = -halfScale; i < halfScale; i += 2.5f)
         {
-            for (int j = -halfScale; j < halfScale; j+=2)
+            for (float j = -halfScale; j < halfScale; j+= 2.5f)
             {
                 spawnFood(new Vector3(i, 0f, j));
             }
