@@ -31,13 +31,7 @@ public class CheckFood : BNode
             if (agent.remainingDistance <= distanceToEat)
             {
                 isClose = true;
-                Vector3 foodLocation = (Vector3)blackboard.GetValue("currentFoodLocation");
-                Vector3 agentLocation = agent.transform.position;
-                Vector3 foodLocationXZ = new Vector3(foodLocation.x, 0f, foodLocation.z);
-                Vector3 agentLocationXZ = new Vector3(agentLocation.x, 0f, agentLocation.z);
-
-                directionToFood = Vector3.Normalize(foodLocationXZ - agentLocationXZ);
-                lookRotation = Quaternion.LookRotation(directionToFood);
+                CalculateDirectionAndRotationToLook();
                 agent.isStopped = true;
             }
             else
@@ -46,6 +40,17 @@ public class CheckFood : BNode
             }
         }
         return NodeState.RUNNING;
+    }
+
+    private void CalculateDirectionAndRotationToLook()
+    {
+        Vector3 foodLocation = (Vector3)blackboard.GetValue("currentFoodLocation");
+        Vector3 agentLocation = agent.transform.position;
+        Vector3 foodLocationXZ = new Vector3(foodLocation.x, 0f, foodLocation.z);
+        Vector3 agentLocationXZ = new Vector3(agentLocation.x, 0f, agentLocation.z);
+
+        directionToFood = Vector3.Normalize(foodLocationXZ - agentLocationXZ);
+        lookRotation = Quaternion.LookRotation(directionToFood);
     }
 
     public override void OnTreeEnded()

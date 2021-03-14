@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 public class AntGlobalBlackboard : GlobalBlackboard
 {
@@ -25,5 +26,6 @@ public class AntGlobalBlackboard : GlobalBlackboard
         AddKeyValue("resourcesEaten", 0);
         AddKeyValue("antsPatrolling", 0);
         AddKeyValue("baseIsInDanger", false);
+        AddKeyValue("currentEnemyBase", Vector3.zero);
     }
 }
