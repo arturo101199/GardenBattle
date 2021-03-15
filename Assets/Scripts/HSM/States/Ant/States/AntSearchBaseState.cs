@@ -32,8 +32,7 @@ public class AntSearchBaseState : State
 
     public override void OnStateUpdate()
     {
-        checkTransitions();
-        actionTree.EvaluateTree();
         base.OnStateUpdate();
+        actionTree.EvaluateTree();
     }
 }

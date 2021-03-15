@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2382731607840928822}
   - component: {fileID: 4112491315141978650}
+  - component: {fileID: 5509618808706961239}
   m_Layer: 0
   m_Name: GoToEnemyBase
   m_TagString: Untagged
@@ -43,7 +44,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d7920d0b0a53b49a5169e0cd7a0f6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitions: []
+  transitions:
+  - targetNode: {fileID: 8715276504390809321}
+    condition: {fileID: 5509618808706961239}
+--- !u!114 &5509618808706961239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561507017561252262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3943a2ff3adafc4baf001016b125090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &744379263633604365
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,7 +139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3c2e526d35e1e45a04dcbb1fece5d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isWeak: 0
 --- !u!1 &1193615883995057373
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3c2e526d35e1e45a04dcbb1fece5d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isWeak: 1
 --- !u!1 &1314879256347320916
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +320,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3c2e526d35e1e45a04dcbb1fece5d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isWeak: 0
 --- !u!1 &2261878563329416788
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +462,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3c2e526d35e1e45a04dcbb1fece5d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isWeak: 0
 --- !u!1 &2393369549784488626
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +505,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98cc9586ea45d3c41b5ce1efe94bd71a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLowLife: 0
 --- !u!1 &2560648392220446712
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,7 +548,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa0e6f1a9f121d74cba774a7275ed156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBaseInDanger: 0
 --- !u!1 &3810625382917319688
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,7 +813,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3c2e526d35e1e45a04dcbb1fece5d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isWeak: 0
 --- !u!1 &7212800284309445015
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,7 +872,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3c2e526d35e1e45a04dcbb1fece5d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isWeak: 0
 --- !u!1 &8138073692740456862
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,7 +952,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e3c2e526d35e1e45a04dcbb1fece5d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isWeak: 0
 --- !u!1 &8646578534739960485
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,12 +1070,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c02d8e87fcc988243958cffea2bbc913, type: 3}
---- !u!4 &8178730258373014808 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8636990428056761347, guid: c02d8e87fcc988243958cffea2bbc913,
-    type: 3}
-  m_PrefabInstance: {fileID: 458363165282550043}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &8178730258373014809 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8636990428056761346, guid: c02d8e87fcc988243958cffea2bbc913,
@@ -1082,6 +1082,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46808a84a5c3d4947b930c812317e437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &8178730258373014808 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8636990428056761347, guid: c02d8e87fcc988243958cffea2bbc913,
+    type: 3}
+  m_PrefabInstance: {fileID: 458363165282550043}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3348489255742519077
 PrefabInstance:
   m_ObjectHideFlags: 0

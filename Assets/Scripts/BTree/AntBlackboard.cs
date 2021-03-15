@@ -14,5 +14,6 @@ public class AntBlackboard : Blackboard
         AddKeyValue("currentFoodLocation", Vector3.zero);
         AddKeyValue("animator", GetComponentInChildren<Animator>());
         AddKeyValue("closerEnemyBase", Vector3.zero);
+        AddKeyValue("health", 100f);
     }
 }

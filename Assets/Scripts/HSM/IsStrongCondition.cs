@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class IsStrongCondition : Condition
+﻿public class IsStrongCondition : Condition
 {
     int foodRequiredToBeStrong = 20;
 

@@ -25,7 +25,6 @@ public class EatFood : BNode
                 ObjectDestroyer.DestroyObjectAtGivenPosition((Vector3)blackboard.GetValue("currentFoodLocation"), LayerMask.GetMask("Food"));
                 int foodEaten = (int)AntGlobalBlackboard.Instance.GetValue("foodEaten");
                 AntGlobalBlackboard.Instance.UpdateValue("foodEaten", foodEaten + 1);
-                print("Food eaten");
                 return NodeState.SUCCESS;
             }
             else
