@@ -1671,15 +1671,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3333537019187392726}
     m_Modifications:
+    - target: {fileID: 3333537018229378473, guid: e87bbedd82a8c7843a13865cfacaffca,
+        type: 3}
+      propertyPath: isWeak
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6288775038296883460, guid: e87bbedd82a8c7843a13865cfacaffca,
         type: 3}
       propertyPath: m_Name
       value: AntAIHSM
-      objectReference: {fileID: 0}
-    - target: {fileID: 8178730257569893474, guid: e87bbedd82a8c7843a13865cfacaffca,
-        type: 3}
-      propertyPath: distanceToEat
-      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 8919324122463291335, guid: e87bbedd82a8c7843a13865cfacaffca,
         type: 3}

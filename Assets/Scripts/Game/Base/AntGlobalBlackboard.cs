@@ -23,9 +23,11 @@ public class AntGlobalBlackboard : GlobalBlackboard
     protected override void initializeBlackboard()
     {
         base.initializeBlackboard();
-        AddKeyValue("resourcesEaten", 0);
+        AddKeyValue("foodEaten", 0);
         AddKeyValue("antsPatrolling", 0);
         AddKeyValue("baseIsInDanger", false);
         AddKeyValue("currentEnemyBase", Vector3.zero);
+        AddKeyValue("baseLocation", Vector3.zero);
+        AddKeyValue("enemyBaseFound", false);
     }
 }

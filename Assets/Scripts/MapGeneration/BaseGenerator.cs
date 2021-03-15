@@ -22,9 +22,9 @@ public class BaseGenerator : MonoBehaviour
                 baseInfo.GlobalBlackboard.UpdateValue("baseLocation", myBase.transform.position);
                 rotateBase(myBase.transform);
                 basesPlaced.Add(baseInfo);
+                FindObjectOfType<NavMeshSurface>().BuildNavMesh();
             }
         }
-        FindObjectOfType<NavMeshSurface>().BuildNavMesh();
         return basesPlaced;
     }
 

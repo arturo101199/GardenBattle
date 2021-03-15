@@ -20,6 +20,7 @@ public class MapGenerator : MonoBehaviour
 
     void placeCharacters(List<BaseInfo> placedBases)
     {
+        print(placedBases.Count);
         starterCharactersGenerator = new StarterCharactersGenerator();
         foreach (BaseInfo placedBase in placedBases)
         {
