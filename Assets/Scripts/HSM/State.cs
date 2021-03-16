@@ -14,6 +14,7 @@ public class State : MonoBehaviour
     public virtual void OnStateEnter()
     {
         print("entro en " + name);
+        transform.root.name = name;
     }
     public virtual void OnStateExit()
     {

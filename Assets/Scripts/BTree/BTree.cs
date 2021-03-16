@@ -12,10 +12,6 @@ public class BTree : MonoBehaviour
     {
         allNodes = GetComponentsInChildren<BNode>();
         blackboard = GetComponentInParent<Blackboard>();
-    }
-
-    void Start()
-    {
         setBlackboard();
     }
 
@@ -30,11 +26,11 @@ public class BTree : MonoBehaviour
     public NodeState EvaluateTree()
     {
         NodeState state = initialNode.Evaluate();
-        if (state != NodeState.RUNNING) resetNodes();
+        if (state != NodeState.RUNNING) ResetNodes();
         return state;
     }
 
-    void resetNodes()
+    public void ResetNodes()
     {
         foreach (BNode node in allNodes)
         {

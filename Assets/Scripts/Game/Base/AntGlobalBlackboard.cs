@@ -29,5 +29,6 @@ public class AntGlobalBlackboard : GlobalBlackboard
         AddKeyValue("currentEnemyBase", Vector3.zero);
         AddKeyValue("baseLocation", Vector3.zero);
         AddKeyValue("enemyBaseFound", false);
+        AddKeyValue("antsDefending", 0);
     }
 }

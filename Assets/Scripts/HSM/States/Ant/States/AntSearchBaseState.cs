@@ -9,8 +9,9 @@ public class AntSearchBaseState : State
     NavMeshAgent agent;
     Vector3 baseLocation;
 
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
         baseManager = (BaseManager)GameGlobalBlackboard.Instance.GetValue("baseManager");
         agent = (NavMeshAgent)blackboard.GetValue("navMeshAgent"); 
         baseLocation = (Vector3)AntGlobalBlackboard.Instance.GetValue("baseLocation");

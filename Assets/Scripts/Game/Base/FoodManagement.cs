@@ -31,7 +31,7 @@ public class FoodManagement : MonoBehaviour
     }
 
     private void OnDrawGizmos()
-    {
+    {/*
         if (isSet)
         {
             Stack<Vector3> backUpStack = new Stack<Vector3>(new Stack<Vector3>(sortedFoodPositions));
@@ -41,6 +41,6 @@ public class FoodManagement : MonoBehaviour
                 Gizmos.color = Color.Lerp(Color.red, Color.cyan, t);
                 Gizmos.DrawSphere(backUpStack.Pop(), 0.3f);
             }
-        }
+        }*/
     }
 }

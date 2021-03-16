@@ -12,6 +12,7 @@ public class AntRecollectState : State
 
     public override void OnStateExit()
     {
+        actionTree.ResetNodes();
         base.OnStateExit();
     }
 
