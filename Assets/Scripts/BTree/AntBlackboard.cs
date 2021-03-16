@@ -15,5 +15,6 @@ public class AntBlackboard : Blackboard
         AddKeyValue("animator", GetComponentInChildren<Animator>());
         AddKeyValue("closerEnemyBase", Vector3.zero);
         AddKeyValue("health", 100f);
+        AddKeyValue("currentEnemy", null);
     }
 }

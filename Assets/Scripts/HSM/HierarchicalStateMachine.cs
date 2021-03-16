@@ -33,5 +33,4 @@ public class HierarchicalStateMachine : MonoBehaviour, IParentState
         }
         activeState.OnStateUpdate();
     }
-
 }

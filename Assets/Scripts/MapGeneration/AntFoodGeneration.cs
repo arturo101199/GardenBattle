@@ -6,6 +6,7 @@ public class AntFoodGeneration : MonoBehaviour
 {
     [SerializeField] GameObject foodPrefab = null;
     List<Vector3> foodPositions = new List<Vector3>();
+    [SerializeField] Transform foodContainer = null;
 
     public void GenerateFood()
     {
@@ -28,7 +29,7 @@ public class AntFoodGeneration : MonoBehaviour
         NavMeshHit hit;
         if (NavMesh.SamplePosition(position, out hit, 3f, NavMesh.AllAreas))
         {
-            Instantiate(foodPrefab, hit.position, Quaternion.identity).SetActive(true);
+            Instantiate(foodPrefab, hit.position, Quaternion.identity, foodContainer).SetActive(true);
             foodPositions.Add(hit.position);
         }
     }
