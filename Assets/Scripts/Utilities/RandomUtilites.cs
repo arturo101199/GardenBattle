@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public static class RandomUtilites
+public static class RandomUtilities
 {
     public static Vector3 GenerateRandomInsideRectangleXZ(Vector3 center, float height, float width)
     {

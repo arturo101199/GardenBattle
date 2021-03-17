@@ -30,12 +30,12 @@ public class BaseGenerator : MonoBehaviour
 
     Vector3 findBasePosition()
     {
-        Vector3 randomPosition = RandomUtilites.GenerateRandomInsideRectangleXZ(Vector3.zero, terrainSize - terrainSizeOffset, terrainSize - terrainSizeOffset);
+        Vector3 randomPosition = RandomUtilities.GenerateRandomInsideRectangleXZ(Vector3.zero, terrainSize - terrainSizeOffset, terrainSize - terrainSizeOffset);
         NavMeshHit hit;
         bool isValidPosition = NavMesh.SamplePosition(randomPosition, out hit, 3f, NavMesh.AllAreas);
         while (!isValidPosition)
         {
-            randomPosition = RandomUtilites.GenerateRandomInsideRectangleXZ(Vector3.zero, terrainSize - terrainSizeOffset, terrainSize - terrainSizeOffset);
+            randomPosition = RandomUtilities.GenerateRandomInsideRectangleXZ(Vector3.zero, terrainSize - terrainSizeOffset, terrainSize - terrainSizeOffset);
             isValidPosition = NavMesh.SamplePosition(randomPosition, out hit, 3f, NavMesh.AllAreas);
         }
         return hit.position;
@@ -43,6 +43,6 @@ public class BaseGenerator : MonoBehaviour
 
     void rotateBase(Transform myBase)
     {
-        TransformUtilites.RotateObjectPerpendicularToTheGround(myBase, groundLayer);
+        TransformUtilities.RotateObjectPerpendicularToTheGround(myBase, groundLayer);
     }
 }

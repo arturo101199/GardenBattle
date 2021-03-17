@@ -2,6 +2,8 @@
 
 public class AntAttackState : State
 {
+    [SerializeField] BTree actionTree = null;
+
     public override void OnStateEnter()
     {
         base.OnStateEnter();
@@ -10,6 +12,7 @@ public class AntAttackState : State
     public override void OnStateExit()
     {
         base.OnStateExit();
+        actionTree.ResetNodes();
     }
 
     public override void OnStateUpdate()

@@ -8,7 +8,7 @@ public class FoodManagement : MonoBehaviour
 
     public void SetFood(List<Vector3> foodPositions)
     {
-        ListUtilites.SortFromDistanceToAnObject(foodPositions, transform.position);
+        ListUtilities.SortFromDistanceToAnObject(foodPositions, transform.position);
         foodPositions.Reverse();
         foreach (Vector3 position in foodPositions)
         {

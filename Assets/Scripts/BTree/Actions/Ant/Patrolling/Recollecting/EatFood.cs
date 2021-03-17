@@ -13,7 +13,7 @@ public class EatFood : BNode
     {
         anim = (Animator)blackboard.GetValue("animator");
         agent = (NavMeshAgent)blackboard.GetValue("navMeshAgent");
-        eatAnimationLength = findEatClipLength();
+        eatAnimationLength = AnimatorUtilities.GetClipLength(anim, "Attack");
     }
 
     public override NodeState Evaluate()
@@ -42,18 +42,6 @@ public class EatFood : BNode
         }
         return NodeState.RUNNING;
 
-    }
-
-    float findEatClipLength()
-    {
-        AnimationClip[] animationClips = anim.runtimeAnimatorController.animationClips;
-
-        foreach (AnimationClip clip in animationClips)
-        {
-            if (clip.name == "Armature_Attack3")
-                return clip.length;
-        }
-        return 0f;
     }
 
     public override void OnTreeEnded()

@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class EnemyNearCondition : Condition
 {
     float distanceNear = 3f;
     Collider[] colsCache = new Collider[32];
-    LayerMask enemyLayer;
+    LayerMask enemyLayer = 0;
     Blackboard blackboard;
 
     private void Awake()
@@ -14,7 +15,12 @@ public class EnemyNearCondition : Condition
 
     private void Start()
     {
-        enemyLayer = LayerMask.GetMask("Character");
+        setEnemyLayer();
+    }
+
+    void setEnemyLayer()
+    {
+        enemyLayer = LayerMaskUtilities.getCharactersLayerExceptMyLayer(gameObject.layer);
     }
 
     public override bool EvaluateCondition()
@@ -22,12 +28,7 @@ public class EnemyNearCondition : Condition
         int enemys = Physics.OverlapSphereNonAlloc(transform.position, distanceNear, colsCache, enemyLayer);
         if(enemys > 0)
         {
-            IDamageable enemy;
-            for (int i = 0; i < enemys; i++)
-            {
-                //colsCache[]
-            }
-            blackboard.UpdateValue("currentEnemy",colsCache[0].GetComponent<IDamageable>());
+            blackboard.UpdateValue("currentEnemy", colsCache[0].transform);
             return true;
         }
         return false;

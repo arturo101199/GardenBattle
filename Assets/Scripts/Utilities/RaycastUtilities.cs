@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public static class RaycastUtilites
+public static class RaycastUtilities
 {
     public static Vector3 GetGroundNormal(Vector3 position, int groundLayer)
     {
