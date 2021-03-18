@@ -34,6 +34,7 @@ public class AttackEnemy : BNode
         }
         else
         {
+            print("Ataque");
             anim.SetTrigger("Attack");
             agent.isStopped = true;
             isAttacking = true;

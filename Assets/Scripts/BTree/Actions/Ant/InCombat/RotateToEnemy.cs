@@ -15,12 +15,16 @@ public class RotateToEnemy : BNode
 
     public override NodeState Evaluate()
     {
+        print(agent.isStopped);
         if (!isRotating)
         {
+            agent.isStopped = true;
             calculateDirectionAndRotationToLook();
+            print(transform.position);
+            print(directionToEnemy);
             isRotating = true;
         }
-        else if (Vector3.Dot(agent.transform.forward, directionToEnemy) > 0.995f)
+        if (Vector3.Dot(agent.transform.forward, directionToEnemy) > 0.997f)
         {
             return NodeState.SUCCESS;
         }
@@ -31,6 +35,7 @@ public class RotateToEnemy : BNode
     public override void OnTreeEnded()
     {
         isRotating = false;
+        agent.isStopped = false;
     }
 
     private void calculateDirectionAndRotationToLook()

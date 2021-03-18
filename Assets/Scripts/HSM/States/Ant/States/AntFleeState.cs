@@ -7,6 +7,12 @@ public class AntFleeState : State
     float deltaMovement = 3f;
     float stoppingdistance = 0.5f;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        agent = (NavMeshAgent)blackboard.GetValue("navMeshAgent");
+    }
+
     public override void OnStateEnter()
     {
         base.OnStateEnter();

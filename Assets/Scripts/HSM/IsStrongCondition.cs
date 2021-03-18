@@ -2,7 +2,7 @@
 
 public class IsStrongCondition : Condition
 {
-    int foodRequiredToBeStrong = 20;
+    int foodRequiredToBeStrong = 5;
     [SerializeField] bool desiredBool = true;
 
     public override bool EvaluateCondition()

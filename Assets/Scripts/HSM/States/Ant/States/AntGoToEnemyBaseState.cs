@@ -14,11 +14,8 @@ public class AntGoToEnemyBaseState : State
     {
         base.OnStateEnter();
         Vector3 currentEnemyBase = (Vector3)AntGlobalBlackboard.Instance.GetValue("currentEnemyBase");
-        Vector3 dirBaseToMe = (transform.position - currentEnemyBase).normalized;
-        Vector3 positionToGo = currentEnemyBase + dirBaseToMe * 0.2f;
-        NavMeshHit hit;
-        NavMesh.SamplePosition(positionToGo, out hit, 3f, NavMesh.AllAreas);
-        agent.SetDestination(hit.position);
+        Vector3 positionToGo = NavMeshUtilities.SamplePositionNearMe(transform.position, currentEnemyBase);
+        agent.SetDestination(positionToGo);
     }
 
     public override void OnStateExit()
