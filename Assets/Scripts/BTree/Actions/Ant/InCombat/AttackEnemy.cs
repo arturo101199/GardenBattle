@@ -19,7 +19,6 @@ public class AttackEnemy : BNode
 
     public override NodeState Evaluate()
     {
-        print("AttackEnemy");
         if (isAttacking)
         {
             if (timer >= attackAnimationLength)

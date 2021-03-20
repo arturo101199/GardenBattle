@@ -17,20 +17,22 @@ public class SubMachineState : State, IParentState
     public override void OnStateUpdate()
     {
         //print("Update de " + name);
-        checkTransitions();
+        if (checkTransitions()) return;
+        makeUpdate();
         activeState.OnStateUpdate();
     }
 
-    protected override void checkTransitions()
+    protected override bool checkTransitions()
     {
         foreach (Transition transition in transitions)
         {
             if (transition.isTriggered())
             {
                 transition.MakeSubMachineStateTransition(this, parentState);
-                return;
+                return true;
             }
         }
+        return false;
     }
 
     public override void OnStateExit()

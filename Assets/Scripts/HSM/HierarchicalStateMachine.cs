@@ -33,4 +33,9 @@ public class HierarchicalStateMachine : MonoBehaviour, IParentState
         }
         activeState.OnStateUpdate();
     }
+
+    private void OnDestroy()
+    {
+        AIHandlerHSMs.RemoveMachine(this);
+    }
 }

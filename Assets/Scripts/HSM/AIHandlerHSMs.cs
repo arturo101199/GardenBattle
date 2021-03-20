@@ -18,4 +18,8 @@ public class AIHandlerHSMs : ScriptableObject
         machines.Clear();
     }
 
+    public void RemoveMachine(HierarchicalStateMachine machine)
+    {
+        machines.Remove(machine);
+    }
 }

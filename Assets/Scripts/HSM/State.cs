@@ -23,20 +23,26 @@ public class State : MonoBehaviour
     }
     public virtual void OnStateUpdate()
     {
-        //print("update de " + name);
-        checkTransitions();
+        if (checkTransitions()) return;
+        makeUpdate();
     }
 
-    protected virtual void checkTransitions()
+    protected virtual bool checkTransitions()
     {
         foreach (Transition transition in transitions)
         {
             if (transition.isTriggered())
             {
                 transition.MakeStateTransition(this, parentState);
-                return;
+                return true;
             }
         }
+        return false;
+    }
+
+    protected virtual void makeUpdate()
+    {
+
     }
 
     public virtual void SetParentState(IParentState state)

@@ -27,8 +27,7 @@ public class AntFleeState : State
     public override void OnStateUpdate()
     {
         base.OnStateUpdate();
-        if (agent.remainingDistance <= stoppingdistance)
-            setDestinationToBase();
+        
     }
 
     void setDestinationToBase()
@@ -38,10 +37,18 @@ public class AntFleeState : State
         NavMeshHit hit;
         Vector3 posToMove = (dirToBase * deltaMovement) + transform.position;
         if (NavMesh.SamplePosition(posToMove, out hit, 3f, NavMesh.AllAreas))
-            agent.SetDestination(posToMove);
+        {
+            agent.SetDestination(hit.position);
+        }
         else
         {
             print("I could not flee");
         }
+    }
+
+    protected override void makeUpdate()
+    {
+        if (agent.remainingDistance <= stoppingdistance)
+            setDestinationToBase();
     }
 }

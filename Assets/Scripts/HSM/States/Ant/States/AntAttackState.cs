@@ -18,6 +18,10 @@ public class AntAttackState : State
     public override void OnStateUpdate()
     {
         base.OnStateUpdate();
+    }
+
+    protected override void makeUpdate()
+    {
         actionTree.EvaluateTree();
     }
 }

@@ -46,6 +46,10 @@ public class AntDefendState : State
     public override void OnStateUpdate()
     {
         base.OnStateUpdate();
+    }
+
+    protected override void makeUpdate()
+    {
         if (agent.remainingDistance <= stoppingDistance)
             setDestination();
     }

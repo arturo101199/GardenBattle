@@ -34,6 +34,10 @@ public class AntSearchBaseState : State
     public override void OnStateUpdate()
     {
         base.OnStateUpdate();
+    }
+
+    protected override void makeUpdate()
+    {
         actionTree.EvaluateTree();
     }
 }

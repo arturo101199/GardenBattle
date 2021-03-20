@@ -2,7 +2,7 @@
 
 public class AntDie : State
 {
-    [SerializeField] GameObject parent;
+    [SerializeField] GameObject parent = null;
     public override void OnStateEnter()
     {
         base.OnStateEnter();

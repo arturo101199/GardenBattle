@@ -26,7 +26,6 @@ public class EnemyNearCondition : Condition
     public override bool EvaluateCondition()
     {
         int enemys = Physics.OverlapSphereNonAlloc(transform.position, distanceNear, colsCache, enemyLayer);
-        print(enemys);
         if(enemys > 0)
         {
             blackboard.UpdateValue("currentEnemy", colsCache[0].transform);

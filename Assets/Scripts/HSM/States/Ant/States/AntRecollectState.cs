@@ -18,7 +18,11 @@ public class AntRecollectState : State
 
     public override void OnStateUpdate()
     {
-        actionTree.EvaluateTree();
         base.OnStateUpdate();
+    }
+
+    protected override void makeUpdate()
+    {
+        actionTree.EvaluateTree();
     }
 }

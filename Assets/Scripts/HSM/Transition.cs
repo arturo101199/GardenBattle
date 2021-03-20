@@ -23,7 +23,7 @@ public class Transition
     public void MakeSubMachineStateTransition(SubMachineState currentState, IParentState parentState)
     {
         MakeBaseTransition(currentState, parentState);
-        currentState.SetCurrentState(targetNode);
+        //currentState.SetCurrentState(targetNode);
     }
     public void MakeHierachicalStateMachineTransition(HierarchicalStateMachine currentState, State activeState)
     {
