@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class CheckDistanceToBase : BNode
+public class CheckDistanceToEnemyBase : BNode
 {
     float distanceToBase = 4f;
 

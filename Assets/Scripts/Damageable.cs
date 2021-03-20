@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Damageable : MonoBehaviour, IDamageable
 {
     Blackboard blackboard;
+    public event Action DeathEvent;
 
     private void Awake()
     {
@@ -11,6 +13,11 @@ public class Damageable : MonoBehaviour, IDamageable
 
     public void GetDamage(float damage)
     {
-        blackboard.UpdateValue("health", (float)blackboard.GetValue("health") - damage);
+        float health = (float)blackboard.GetValue("health") - damage;
+        blackboard.UpdateValue("health", health);
+        if(health <= 0f)
+        {
+            DeathEvent?.Invoke();
+        }
     }
 }

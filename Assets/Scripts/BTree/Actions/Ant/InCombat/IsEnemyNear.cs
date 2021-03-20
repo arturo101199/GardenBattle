@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 
-public class CheckDistanceToEnemy : BNode
+public class IsEnemyNear : BNode
 {
-    float distance = 1.5f;
+    [SerializeField] float distance = 1.5f;
+    [SerializeField] bool desiredBool = true;
 
     public override NodeState Evaluate()
     {
         Transform enemy = (Transform)blackboard.GetValue("currentEnemy");
-        if (Vector3.Distance(transform.position, enemy.position) <= distance)
+        if ((Vector3.Distance(transform.position, enemy.position) <= distance) == desiredBool)
             return NodeState.SUCCESS;
         else
             return NodeState.FAIL;

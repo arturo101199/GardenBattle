@@ -19,11 +19,14 @@ public class AttackEnemy : BNode
 
     public override NodeState Evaluate()
     {
+        print("AttackEnemy");
         if (isAttacking)
         {
             if (timer >= attackAnimationLength)
             {
                 Transform enemy = (Transform)blackboard.GetValue("currentEnemy");
+                if (enemy == null)
+                    return NodeState.SUCCESS;
                 enemy.GetComponent<IDamageable>().GetDamage(damage);
                 return NodeState.SUCCESS;
             }
@@ -34,7 +37,6 @@ public class AttackEnemy : BNode
         }
         else
         {
-            print("Ataque");
             anim.SetTrigger("Attack");
             agent.isStopped = true;
             isAttacking = true;

@@ -15,13 +15,13 @@ public class RotateToEnemy : BNode
 
     public override NodeState Evaluate()
     {
-        print(agent.isStopped);
         if (!isRotating)
         {
             agent.isStopped = true;
-            calculateDirectionAndRotationToLook();
-            print(transform.position);
-            print(directionToEnemy);
+            Transform enemy = (Transform)blackboard.GetValue("currentEnemy");
+            if (enemy == null)
+                return NodeState.FAIL;
+            calculateDirectionAndRotationToLook(enemy);
             isRotating = true;
         }
         if (Vector3.Dot(agent.transform.forward, directionToEnemy) > 0.997f)
@@ -38,9 +38,8 @@ public class RotateToEnemy : BNode
         agent.isStopped = false;
     }
 
-    private void calculateDirectionAndRotationToLook()
+    private void calculateDirectionAndRotationToLook(Transform enemy)
     {
-        Transform enemy = (Transform)blackboard.GetValue("currentEnemy");
         directionToEnemy = Vector3Utilities.GetDirectionXZFromTo(transform.position, enemy.position);
         lookRotation = Quaternion.LookRotation(directionToEnemy);
     }

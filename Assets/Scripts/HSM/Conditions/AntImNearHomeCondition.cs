@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class IsNearHomeCondition : Condition
+public class AntImNearHomeCondition : Condition
 {
     float distanceNear = 3f;
 

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class IsStrongCondition : Condition
+public class ImStrongCondition : Condition
 {
     int foodRequiredToBeStrong = 5;
     [SerializeField] bool desiredBool = true;

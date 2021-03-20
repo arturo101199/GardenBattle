@@ -6,7 +6,7 @@ public class HierarchicalStateMachine : MonoBehaviour, IParentState
     [SerializeField] protected Transition[] transitions;
     [SerializeField] AIHandlerHSMs AIHandlerHSMs = null;
 
-    [SerializeField] State activeState;
+    State activeState;
 
     public void SetCurrentState(State state)
     {

@@ -594,6 +594,7 @@ GameObject:
   - component: {fileID: 3333537019187392725}
   - component: {fileID: 8606915446706228755}
   - component: {fileID: 6411909399232267227}
+  - component: {fileID: 8791120591210521924}
   m_Layer: 15
   m_Name: Ant
   m_TagString: Untagged
@@ -663,6 +664,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06b4fa39f92cd1142ae0f5cdf99519ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &8791120591210521924
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3333537019187392727}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &3333537019231162637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,6 +1833,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 5023975259707168953, guid: e87bbedd82a8c7843a13865cfacaffca,
+        type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 3333537019187392727}
     - target: {fileID: 5299228351564273935, guid: e87bbedd82a8c7843a13865cfacaffca,
         type: 3}
       propertyPath: m_Layer
@@ -1946,12 +1965,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e87bbedd82a8c7843a13865cfacaffca, type: 3}
---- !u!4 &1702667671116832678 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8919324122463291335, guid: e87bbedd82a8c7843a13865cfacaffca,
-    type: 3}
-  m_PrefabInstance: {fileID: 7811169411024984161}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &504533683409844469 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7739066007936196756, guid: e87bbedd82a8c7843a13865cfacaffca,
@@ -1964,3 +1977,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a842cf7d12c5c7b4180791fbde176479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1702667671116832678 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8919324122463291335, guid: e87bbedd82a8c7843a13865cfacaffca,
+    type: 3}
+  m_PrefabInstance: {fileID: 7811169411024984161}
+  m_PrefabAsset: {fileID: 0}

@@ -21,9 +21,16 @@ public class GoToEnemy : BNode
         {
             agent.isStopped = false;
             enemy = (Transform)blackboard.GetValue("currentEnemy");
+            if (enemy == null)
+                return NodeState.FAIL;
             Vector3 positionToGo = NavMeshUtilities.SamplePositionNearMe(transform.position, enemy.position);
             agent.SetDestination(positionToGo);
             firstTime = false;
+        }
+        else
+        {
+            if (enemy == null)
+                return NodeState.FAIL;
         }
         if(agent.remainingDistance <= stoppingDistance)
         {
