@@ -12,6 +12,12 @@ public class Healable : MonoBehaviour, IHealable
 
     public void Heal(float value)
     {
-       blackboard.UpdateValue("health", (float)blackboard.GetValue("health") + value);
+        float health = (float)blackboard.GetValue("health");
+        if(health < maxHealth)
+        {
+            float newHealth = Mathf.Clamp(health + value, 0, maxHealth);
+            blackboard.UpdateValue("health", newHealth);
+
+        }
     }
 }

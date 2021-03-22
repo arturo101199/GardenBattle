@@ -3,11 +3,15 @@
 public class Base : MonoBehaviour, IDamageable
 {
     [SerializeField] float health;
+
     BaseManager baseManager;
     Collider[] colsCache = new Collider[1];
+
     LayerMask enemyLayer = 0;
     float radiusOfDetection = 4f;
 
+    [SerializeField] bool imInDanger;
+    
     private void Start()
     {
         baseManager = FindObjectOfType<BaseManager>();
@@ -32,13 +36,15 @@ public class Base : MonoBehaviour, IDamageable
     void detectEnemies()
     {
         int n = Physics.OverlapSphereNonAlloc(transform.position, radiusOfDetection, colsCache, enemyLayer);
-        if(n > 0)
+        if(n > 0 && !imInDanger)
         {
             AntGlobalBlackboard.Instance.UpdateValue("baseIsInDanger", true);
+            imInDanger = true;
         }
-        else
+        else if(n == 0 && imInDanger)
         {
             AntGlobalBlackboard.Instance.UpdateValue("baseIsInDanger", false);
+            imInDanger = false;
         }
     }
 }
