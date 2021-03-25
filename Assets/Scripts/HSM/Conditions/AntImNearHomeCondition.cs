@@ -9,4 +9,3 @@ public class AntImNearHomeCondition : Condition
         return Vector3.Distance((Vector3)AntGlobalBlackboard.Instance.GetValue("baseLocation"), transform.position) <= distanceNear;
     }
 }
-
