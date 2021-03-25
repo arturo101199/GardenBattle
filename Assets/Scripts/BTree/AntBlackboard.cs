@@ -16,6 +16,6 @@ public class AntBlackboard : Blackboard
         AddKeyValue("closerEnemyBase", Vector3.zero);
         AddKeyValue("health", 100f);
         AddKeyValue("currentEnemy", null);
-
+        AddKeyValue("globalBlackboard", AntGlobalBlackboard.Instance);
     }
 }

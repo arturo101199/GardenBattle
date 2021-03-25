@@ -8,11 +8,13 @@ public class AntDefendState : State
     float deltaAngle = 90f;
 
     NavMeshAgent agent;
+    GlobalBlackboard globalBlackboard;
 
     protected override void Awake()
     {
         base.Awake();
         agent = (NavMeshAgent)blackboard.GetValue("navMeshAgent");
+        globalBlackboard = (GlobalBlackboard)blackboard.GetValue("globalBlackboard");
     }
 
     public override void OnStateEnter()
@@ -23,7 +25,7 @@ public class AntDefendState : State
 
     void setDestination()
     {
-        Vector3 basePos = (Vector3)AntGlobalBlackboard.Instance.GetValue("baseLocation");
+        Vector3 basePos = (Vector3)globalBlackboard.GetValue("baseLocation");
         Vector3 dirToMe = (transform.position - basePos).normalized * baseOffset;
         Vector3 directionToMove = Quaternion.Euler(0, deltaAngle, 0) * dirToMe;
         Vector3 posToMove = basePos + directionToMove;

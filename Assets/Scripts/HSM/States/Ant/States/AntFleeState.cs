@@ -6,11 +6,14 @@ public class AntFleeState : State
     NavMeshAgent agent = null;
     float deltaMovement = 3f;
     float stoppingdistance = 0.5f;
+    GlobalBlackboard globalBlackboard;
+
 
     protected override void Awake()
     {
         base.Awake();
         agent = (NavMeshAgent)blackboard.GetValue("navMeshAgent");
+        globalBlackboard = (GlobalBlackboard)blackboard.GetValue("globalBlackboard");
     }
 
     public override void OnStateEnter()
@@ -32,7 +35,7 @@ public class AntFleeState : State
 
     void setDestinationToBase()
     {
-        Vector3 baseLocation = (Vector3)AntGlobalBlackboard.Instance.GetValue("baseLocation");
+        Vector3 baseLocation = (Vector3)globalBlackboard.GetValue("baseLocation");
         Vector3 dirToBase = (baseLocation - transform.position).normalized;
         NavMeshHit hit;
         Vector3 posToMove = (dirToBase * deltaMovement) + transform.position;

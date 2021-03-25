@@ -2,10 +2,17 @@
 
 public class AntDefendingBase : SubMachineState
 {
+    GlobalBlackboard globalBlackboard;
+
+    private void Start()
+    {
+        globalBlackboard = (GlobalBlackboard)blackboard.GetValue("globalBlackboard");
+    }
+
     public override void OnStateEnter()
     {
         base.OnStateEnter();
-        AntGlobalBlackboard.Instance.UpdateValue("antsDefending", (int)AntGlobalBlackboard.Instance.GetValue("antsDefending") + 1);
+        globalBlackboard.UpdateValue("antsDefending", (int)globalBlackboard.GetValue("antsDefending") + 1);
     }
 
     public override void OnStateExit()

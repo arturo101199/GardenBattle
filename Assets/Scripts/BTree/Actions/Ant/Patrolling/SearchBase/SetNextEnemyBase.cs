@@ -2,11 +2,18 @@
 
 public class SetNextEnemyBase : BNode
 {
+    GlobalBlackboard globalBlackboard;
+
+    private void Start()
+    {
+        globalBlackboard = (GlobalBlackboard)blackboard.GetValue("globalBlackboard");
+    }
+
     public override NodeState Evaluate()
     {
         Vector3 closerBase = (Vector3)blackboard.GetValue("closerEnemyBase");
-        AntGlobalBlackboard.Instance.UpdateValue("currentEnemyBase", closerBase);
-        AntGlobalBlackboard.Instance.UpdateValue("enemyBaseFound", true);
+        globalBlackboard.UpdateValue("currentEnemyBase", closerBase);
+        globalBlackboard.UpdateValue("enemyBaseFound", true);
         return NodeState.SUCCESS;
     }
 

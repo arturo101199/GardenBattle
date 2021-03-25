@@ -4,11 +4,13 @@ public class CheckClosestBase : BNode
 {
     BaseManager baseManager;
     Vector3 baseLocation;
+    GlobalBlackboard globalBlackboard;
 
     private void Start()
     {
         baseManager = (BaseManager)GameGlobalBlackboard.Instance.GetValue("baseManager");
-        baseLocation = (Vector3)AntGlobalBlackboard.Instance.GetValue("baseLocation");
+        globalBlackboard = (GlobalBlackboard)blackboard.GetValue("globalBlackboard");
+        baseLocation = (Vector3)globalBlackboard.GetValue("baseLocation");
     }
 
     public override NodeState Evaluate()

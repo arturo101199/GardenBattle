@@ -4,16 +4,18 @@ using UnityEngine.AI;
 public class AntGoToEnemyBaseState : State
 {
     NavMeshAgent agent;
+    GlobalBlackboard globalBlackboard;
 
     private void Start()
     {
         agent = (NavMeshAgent)blackboard.GetValue("navMeshAgent");
+        globalBlackboard = (GlobalBlackboard)blackboard.GetValue("globalBlackboard");
     }
 
     public override void OnStateEnter()
     {
         base.OnStateEnter();
-        Vector3 currentEnemyBase = (Vector3)AntGlobalBlackboard.Instance.GetValue("currentEnemyBase");
+        Vector3 currentEnemyBase = (Vector3)globalBlackboard.GetValue("currentEnemyBase");
         Vector3 positionToGo = NavMeshUtilities.SamplePositionNearMe(transform.position, currentEnemyBase);
         agent.SetDestination(positionToGo);
     }
