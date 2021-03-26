@@ -15,5 +15,6 @@ public class WaspBlackboard : Blackboard
         AddKeyValue("closerEnemyBase", Vector3.zero);
         AddKeyValue("health", 100f);
         AddKeyValue("currentEnemy", null);
+        AddKeyValue("globalBlackboard", WaspGlobalBlackboard.Instance);
     }
 }

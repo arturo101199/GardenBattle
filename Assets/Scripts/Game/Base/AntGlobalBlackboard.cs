@@ -30,5 +30,6 @@ public class AntGlobalBlackboard : GlobalBlackboard
         AddKeyValue("baseLocation", Vector3.zero);
         AddKeyValue("enemyBaseFound", false);
         AddKeyValue("antsDefending", 0);
+        AddKeyValue("maxHealth", 100f);
     }
 }

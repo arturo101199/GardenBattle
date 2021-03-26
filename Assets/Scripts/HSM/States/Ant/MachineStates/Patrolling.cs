@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class AntPatrolling : SubMachineState
+public class Patrolling : SubMachineState
 {
     Animator anim;
 

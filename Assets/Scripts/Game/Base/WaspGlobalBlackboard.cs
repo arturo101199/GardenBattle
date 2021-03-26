@@ -26,5 +26,6 @@ public class WaspGlobalBlackboard : GlobalBlackboard
         AddKeyValue("currentEnemyBase", Vector3.zero);
         AddKeyValue("baseLocation", Vector3.zero);
         AddKeyValue("enemyBaseFound", false);
+        AddKeyValue("maxHealth", 100f);
     }
 }

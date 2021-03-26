@@ -1,12 +1,14 @@
-﻿public class AntIsEnemyBaseFoundCondition : Condition
+﻿
+public class IsEnemyBaseFoundCondition : Condition
 {
     GlobalBlackboard globalBlackboard;
     Blackboard blackboard;
 
-    private void Start()
+    private void Awake()
     {
         blackboard = GetComponentInParent<Blackboard>();
         globalBlackboard = (GlobalBlackboard)blackboard.GetValue("globalBlackboard");
+        print(globalBlackboard + " " + transform.root.GetInstanceID());
     }
 
     public override bool EvaluateCondition()

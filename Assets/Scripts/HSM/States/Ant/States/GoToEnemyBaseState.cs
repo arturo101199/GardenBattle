@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class AntGoToEnemyBaseState : State
+public class GoToEnemyBaseState : State
 {
     NavMeshAgent agent;
     GlobalBlackboard globalBlackboard;

@@ -2,6 +2,9 @@
 
 public class Base : MonoBehaviour, IDamageable
 {
+    [Header("Debug")]
+    [SerializeField] bool imInDanger;
+
     [SerializeField] float health;
 
     BaseManager baseManager;
@@ -10,7 +13,7 @@ public class Base : MonoBehaviour, IDamageable
     LayerMask enemyLayer = 0;
     float radiusOfDetection = 4f;
 
-    [SerializeField] bool imInDanger;
+    GlobalBlackboard globalBlackboard = null;
     
     private void Start()
     {
@@ -22,6 +25,11 @@ public class Base : MonoBehaviour, IDamageable
     private void Update()
     {
         detectEnemies();
+    }
+
+    public void SetGlobalBlackboard(GlobalBlackboard globalBlackboard)
+    {
+        this.globalBlackboard = globalBlackboard;
     }
 
     public void GetDamage(float damageValue)
@@ -38,12 +46,12 @@ public class Base : MonoBehaviour, IDamageable
         int n = Physics.OverlapSphereNonAlloc(transform.position, radiusOfDetection, colsCache, enemyLayer);
         if(n > 0 && !imInDanger)
         {
-            AntGlobalBlackboard.Instance.UpdateValue("baseIsInDanger", true);
+            globalBlackboard.UpdateValue("baseIsInDanger", true);
             imInDanger = true;
         }
         else if(n == 0 && imInDanger)
         {
-            AntGlobalBlackboard.Instance.UpdateValue("baseIsInDanger", false);
+            globalBlackboard.UpdateValue("baseIsInDanger", false);
             imInDanger = false;
         }
     }

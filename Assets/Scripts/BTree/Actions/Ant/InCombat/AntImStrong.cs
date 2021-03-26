@@ -14,6 +14,7 @@ public class AntImStrong : BNode
 
     public override NodeState Evaluate()
     {
+        print(globalBlackboard);
         if (((int)globalBlackboard.GetValue("foodEaten") >= foodRequiredToBeStrong) == desiredBool)
         {
             return NodeState.SUCCESS;

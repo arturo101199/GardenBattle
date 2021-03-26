@@ -2,7 +2,7 @@
 
 public class StateSelectorOneState : StateSelector
 {
-    [SerializeField] State initialState;
+    [SerializeField] State initialState = null;
 
     public override State SelectNode()
     {

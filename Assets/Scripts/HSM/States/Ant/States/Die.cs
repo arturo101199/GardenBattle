@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class AntDie : State
+public class Die : State
 {
     [SerializeField] GameObject parent = null;
     public override void OnStateEnter()

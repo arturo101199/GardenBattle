@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class AntDefendState : State
+public class MeeleeDefendState : State
 {
     float baseOffset = 3f;
     float stoppingDistance = 1f;

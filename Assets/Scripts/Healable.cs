@@ -2,12 +2,16 @@
 
 public class Healable : MonoBehaviour, IHealable
 {
+    float maxHealth = 100f;
+
     Blackboard blackboard;
-    [SerializeField] float maxHealth;
+    GlobalBlackboard globalBlackboard;
 
     private void Awake()
     {
         blackboard = GetComponent<Blackboard>();
+        globalBlackboard = (GlobalBlackboard)blackboard.GetValue("globalBlackboard");
+        maxHealth = (float)globalBlackboard.GetValue("maxHealth");
     }
 
     public void Heal(float value)

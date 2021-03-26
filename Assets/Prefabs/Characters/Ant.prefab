@@ -690,7 +690,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1639ed445774a5a44bccf5fbf2a06224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
 --- !u!1 &3333537019231162637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,6 +1881,11 @@ PrefabInstance:
       propertyPath: transitions.Array.data[1].targetNode
       value: 
       objectReference: {fileID: 504533683409844469}
+    - target: {fileID: 6803454470992946886, guid: e87bbedd82a8c7843a13865cfacaffca,
+        type: 3}
+      propertyPath: distance
+      value: 4.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7212800284309445015, guid: e87bbedd82a8c7843a13865cfacaffca,
         type: 3}
       propertyPath: m_Layer

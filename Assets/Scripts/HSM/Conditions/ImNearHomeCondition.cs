@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class AntImNearHomeCondition : Condition
+public class ImNearHomeCondition : Condition
 {
     float distanceNear = 3f;
     Blackboard blackboard;

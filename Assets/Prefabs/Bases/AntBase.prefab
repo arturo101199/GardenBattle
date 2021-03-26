@@ -14,9 +14,8 @@ GameObject:
   - component: {fileID: 3239355242695379677}
   - component: {fileID: 3239355242695379678}
   - component: {fileID: 6288461139085979824}
-  - component: {fileID: 8641977625884851821}
-  - component: {fileID: -7024606283679414194}
   - component: {fileID: -4549269421907535403}
+  - component: {fileID: 7496136088588079847}
   m_Layer: 15
   m_Name: AntBase
   m_TagString: Untagged
@@ -34,7 +33,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.23, y: 0.5, z: -5.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5436379010310821387}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9cffe0bf6f4b4f4696efdff73429f13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  imInDanger: 0
   health: 100
 --- !u!114 &6288461139085979824
 MonoBehaviour:
@@ -123,32 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f899946235f98b4d8c59ca95f9c7b80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &8641977625884851821
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3239355242695379679}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 4
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-7024606283679414194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3239355242695379679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ca0e5fda8d39284d9039898a508d1a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healPerSecond: 10
 --- !u!54 &-4549269421907535403
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -165,3 +140,74 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &7496136088588079847
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3239355242695379679}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &5972027183779230194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5436379010310821387}
+  - component: {fileID: 5222701050981631667}
+  - component: {fileID: 813801350204451944}
+  m_Layer: 0
+  m_Name: HealingCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5436379010310821387
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5972027183779230194}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3239355242695379650}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5222701050981631667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5972027183779230194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ca0e5fda8d39284d9039898a508d1a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healPerSecond: 10
+--- !u!135 &813801350204451944
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5972027183779230194}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4
+  m_Center: {x: 0, y: 0, z: 0}

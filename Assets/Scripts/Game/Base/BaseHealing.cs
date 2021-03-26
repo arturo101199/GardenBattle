@@ -10,7 +10,7 @@ public class BaseHealing : MonoBehaviour
 
     private void Awake()
     {
-        myLayer = gameObject.layer;
+        myLayer = transform.parent.gameObject.layer;
     }
 
     private void Update()

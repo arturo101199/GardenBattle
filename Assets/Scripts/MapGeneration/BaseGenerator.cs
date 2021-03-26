@@ -21,6 +21,7 @@ public class BaseGenerator : MonoBehaviour
                 GameObject myBase = Instantiate(baseInfo.BasePrefab, findBasePosition(), Quaternion.identity, parentTransform);
                 baseInfo.GlobalBlackboard.UpdateValue("baseLocation", myBase.transform.position);
                 rotateBase(myBase.transform);
+                myBase.GetComponent<Base>().SetGlobalBlackboard(baseInfo.GlobalBlackboard);
                 basesPlaced.Add(baseInfo);
                 FindObjectOfType<NavMeshSurface>().BuildNavMesh();
             }
