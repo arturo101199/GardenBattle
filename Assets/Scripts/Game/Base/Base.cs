@@ -38,6 +38,7 @@ public class Base : MonoBehaviour, IDamageable
         if(health < 0f)
         {
             baseManager.RemoveBase(this);
+            Destroy(this.gameObject);
         }
     }
 

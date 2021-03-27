@@ -8,11 +8,11 @@ public class IsEnemyBaseFoundCondition : Condition
     {
         blackboard = GetComponentInParent<Blackboard>();
         globalBlackboard = (GlobalBlackboard)blackboard.GetValue("globalBlackboard");
-        print(globalBlackboard + " " + transform.root.GetInstanceID());
     }
 
     public override bool EvaluateCondition()
     {
+        print((bool)globalBlackboard.GetValue("enemyBaseFound"));
         return (bool)globalBlackboard.GetValue("enemyBaseFound");
     }
 }
