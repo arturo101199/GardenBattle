@@ -6,7 +6,7 @@ public class BaseGenerator : MonoBehaviour
 {
     [SerializeField] LayerMask groundLayer = 0;
     [SerializeField] float terrainSize = 48f;
-    [SerializeField] float terrainSizeOffset = 1f; //Offset for not placing bases just on the edge of the map
+    [SerializeField] float terrainSizeOffset = 3f; //Offset for not placing bases just on the edge of the map
     [SerializeField] BaseInfo[] baseInfos = null;
     [SerializeField] Transform parentTransform = null;
 

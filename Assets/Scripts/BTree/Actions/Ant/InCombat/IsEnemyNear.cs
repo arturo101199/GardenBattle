@@ -8,8 +8,6 @@ public class IsEnemyNear : BNode
     public override NodeState Evaluate()
     {
         Transform enemy = (Transform)blackboard.GetValue("currentEnemy");
-        print("Distance: " + distance);
-        print(Vector3.Distance(transform.position, enemy.position));
         if ((Vector3.Distance(transform.position, enemy.position) <= distance) == desiredBool)
             return NodeState.SUCCESS;
         else

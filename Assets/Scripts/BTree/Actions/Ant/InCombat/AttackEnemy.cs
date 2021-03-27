@@ -38,7 +38,6 @@ public class AttackEnemy : BNode
         {
             anim.SetTrigger("Attack");
             agent.isStopped = true;
-            print("agent stopped");
             isAttacking = true;
         }
         return NodeState.RUNNING;

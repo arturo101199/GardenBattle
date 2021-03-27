@@ -12,7 +12,6 @@ public class IsEnemyBaseFoundCondition : Condition
 
     public override bool EvaluateCondition()
     {
-        print((bool)globalBlackboard.GetValue("enemyBaseFound"));
         return (bool)globalBlackboard.GetValue("enemyBaseFound");
     }
 }

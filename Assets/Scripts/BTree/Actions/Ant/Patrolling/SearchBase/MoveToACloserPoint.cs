@@ -4,7 +4,7 @@ using UnityEngine.AI;
 public class MoveToACloserPoint : BNode
 {
     NavMeshAgent agent;
-    float distanceToMove = 5f;
+    float distanceToMove = 7f;
 
     private void Start()
     {
@@ -31,8 +31,8 @@ public class MoveToACloserPoint : BNode
     {
         float distanceToBase = Vector3.Distance((Vector3)blackboard.GetValue("closerEnemyBase"), transform.position);
         distanceToBase = Mathf.Clamp(distanceToBase, 4f, 50f);
-        float t = Mathf.InverseLerp(4f, 50f, distanceToBase);
-        float maxAngle = Mathf.Lerp(90f, 0f, t);
+        float t = Mathf.InverseLerp(4f, 75f, distanceToBase);
+        float maxAngle = Mathf.Lerp(0f, 180f, t);
         return maxAngle;
     }
 

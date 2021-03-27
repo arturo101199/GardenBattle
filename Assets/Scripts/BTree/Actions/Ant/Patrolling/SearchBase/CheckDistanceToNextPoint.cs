@@ -12,7 +12,7 @@ public class CheckDistanceToNextPoint : BNode
 
     public override NodeState Evaluate()
     {
-        if (agent.remainingDistance < 0.5f || agent.remainingDistance == Mathf.Infinity)
+        if (agent.remainingDistance < 1f || agent.remainingDistance == Mathf.Infinity)
             return NodeState.SUCCESS;
         else
             return NodeState.FAIL;

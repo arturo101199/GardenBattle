@@ -13,12 +13,10 @@ public class State : MonoBehaviour
 
     public virtual void OnStateEnter()
     {
-        print("entro en " + name + " " + transform.root.GetInstanceID());
         transform.root.name = name;
     }
     public virtual void OnStateExit()
     {
-        print("salgo de " + name + " " + transform.root.GetInstanceID());
         
     }
     public virtual void OnStateUpdate()

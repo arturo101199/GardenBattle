@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imInDanger: 0
-  health: 100
+  health: 1000
 --- !u!114 &6288461139085979824
 MonoBehaviour:
   m_ObjectHideFlags: 0
