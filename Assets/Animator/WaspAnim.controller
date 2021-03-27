@@ -8,7 +8,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Move
-  m_Speed: 2
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 5484853957503292106}
@@ -75,7 +75,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: feb6ab0cc1587ee459c6be866de56997, type: 2}
+  m_Motion: {fileID: 7400000, guid: 5c890bf71de96ea45a9c8cde3eb055ea, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -127,7 +127,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 20c154e297ee6c948a4acc9f3b9756dc, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2dc48dbdcdff13e499f26a45351a5493, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

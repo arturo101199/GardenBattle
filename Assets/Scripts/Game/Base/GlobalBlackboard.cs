@@ -14,6 +14,6 @@ public class GlobalBlackboard : Blackboard
 
     protected virtual void initializeBlackboard()
     {
-        AddKeyValue("totalNumberOfCharacters", 10);
+        AddKeyValue("totalNumberOfCharacters", 5);
     }
 }
