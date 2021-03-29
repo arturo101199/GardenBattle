@@ -27,8 +27,8 @@ public class EatFood : BNode
             if(timer >= eatAnimationLength)
             {
                 ObjectDestroyer.DestroyObjectAtGivenPosition((Vector3)blackboard.GetValue("currentFoodLocation"), LayerMask.GetMask("Food"));
-                int foodEaten = (int)globalBlackboard.GetValue("foodEaten");
-                globalBlackboard.UpdateValue("foodEaten", foodEaten + 1);
+                int foodEaten = (int)globalBlackboard.GetValue("foodEaten") + 1;
+                globalBlackboard.UpdateValue("foodEaten", foodEaten);
                 return NodeState.SUCCESS;
             }
             else
@@ -44,6 +44,11 @@ public class EatFood : BNode
         }
         return NodeState.RUNNING;
 
+    }
+
+    void updateAttack(int foodEaten)
+    {
+        
     }
 
     public override void OnTreeEnded()

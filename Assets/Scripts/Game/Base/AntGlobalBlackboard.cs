@@ -31,5 +31,9 @@ public class AntGlobalBlackboard : GlobalBlackboard
         AddKeyValue("enemyBaseFound", false);
         AddKeyValue("antsDefending", 0);
         AddKeyValue("maxHealth", 100f);
+        AddKeyValue("attackDamage", 5f);
+        AddKeyValue("minAttackDamage", 5f);
+        AddKeyValue("maxAttackDamage", 25f);
+        AddKeyValue("maxFood", 20);
     }
 }

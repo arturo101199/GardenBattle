@@ -8,13 +8,17 @@ public class AttackEnemy : BNode
     NavMeshAgent agent;
     bool isAttacking;
     float timer = 0f;
-    [SerializeField] float damage = 20f;
+    float attackDamage = 20f;
+
+    GlobalBlackboard globalBlackboard;
 
     private void Start()
     {
         anim = (Animator)blackboard.GetValue("animator");
         agent = (NavMeshAgent)blackboard.GetValue("navMeshAgent");
         attackAnimationLength = AnimatorUtilities.GetClipLength(anim, "Attack");
+        globalBlackboard = (GlobalBlackboard)blackboard.GetValue("globalBlackboard");
+        attackDamage = (float)globalBlackboard.GetValue("attackDamage");
     }
 
     public override NodeState Evaluate()
@@ -26,7 +30,7 @@ public class AttackEnemy : BNode
                 Transform enemy = (Transform)blackboard.GetValue("currentEnemy");
                 if (enemy == null)
                     return NodeState.SUCCESS;
-                enemy.GetComponent<IDamageable>().GetDamage(damage);
+                enemy.GetComponent<IDamageable>().GetDamage(attackDamage);
                 return NodeState.SUCCESS;
             }
             else

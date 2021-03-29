@@ -2,7 +2,7 @@
 
 public class AntImStrong : BNode
 {
-    int foodRequiredToBeStrong = 5;
+    int foodRequiredToBeStrong = 20;
     [SerializeField] bool desiredBool = true;
 
     GlobalBlackboard globalBlackboard;
@@ -10,6 +10,7 @@ public class AntImStrong : BNode
     private void Start()
     {
         globalBlackboard = (GlobalBlackboard)blackboard.GetValue("globalBlackboard");
+        foodRequiredToBeStrong = (int)globalBlackboard.GetValue("maxFood");
     }
 
     public override NodeState Evaluate()

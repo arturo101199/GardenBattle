@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 2382731607840928822}
   - component: {fileID: 4112491315141978650}
   - component: {fileID: 5509618808706961239}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: GoToEnemyBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 7849670147604564632}
   - component: {fileID: 187628444547275282}
   - component: {fileID: 1641054695993614120}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: DefendingBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 8643685680031786258}
   - component: {fileID: 8715276504390809321}
   - component: {fileID: 6491211764972357108}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SearchBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2963b8a06b487c947888a0ffcdf73c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stoppingDistance: 1.5
+  stoppingDistance: 3
 --- !u!1 &1312389290932044910
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 2379133132724458689}
   - component: {fileID: 517770632244572762}
   - component: {fileID: 3333537018229378473}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Recollect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ GameObject:
   - component: {fileID: 5848472818917651476}
   - component: {fileID: 4275841548046355463}
   - component: {fileID: 945022639257838542}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: BackHome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -582,7 +582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 455f01b7bf4b9c64ab1bb89b51b2d23a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 1.5
+  distance: 3
   desiredBool: 1
 --- !u!1 &1886925558701591747
 GameObject:
@@ -685,7 +685,7 @@ GameObject:
   - component: {fileID: 3333537019567061563}
   - component: {fileID: 318626688259620282}
   - component: {fileID: 9042274951366920105}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Patrolling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -795,7 +795,7 @@ GameObject:
   - component: {fileID: 6823645777848171564}
   - component: {fileID: 2184180018921016358}
   - component: {fileID: 8575663759022602669}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Flee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -888,7 +888,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a93debad124ed4eb26d42f19796905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
 --- !u!1 &3168250706976030167
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,7 +985,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2500381221109222560}
   - component: {fileID: 2552708580994946869}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Sequencer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1178,7 +1177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7612995753044027925}
   - component: {fileID: 3948414590553434434}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: CheckTurnTimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1492,7 +1491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8063895812491582628}
   - component: {fileID: 6257010066021814439}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: BTreeDefendingBaseToPatrolling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1629,7 +1628,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7197606591345371520}
   - component: {fileID: 393082074400233577}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Defend
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1676,7 +1675,7 @@ GameObject:
   - component: {fileID: 7318041506296371239}
   - component: {fileID: 3678211939615202107}
   - component: {fileID: 4742705945282128854}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: AntAIHSM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1857,7 +1856,7 @@ GameObject:
   - component: {fileID: 6779989534081569111}
   - component: {fileID: 280475698668357539}
   - component: {fileID: 1917425952550633241}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2084,7 +2083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 455f01b7bf4b9c64ab1bb89b51b2d23a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 4
+  distance: 4.5
   desiredBool: 0
 --- !u!1 &8138073692740456862
 GameObject:
@@ -2099,7 +2098,7 @@ GameObject:
   - component: {fileID: 3333537018342463196}
   - component: {fileID: 1818635843397402997}
   - component: {fileID: 7440705946228669365}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: InCombat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2241,7 +2240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5424275537563347724}
   - component: {fileID: 5023975259707168953}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: DIe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2370,6 +2369,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2379133132724458689}
     m_Modifications:
+    - target: {fileID: 21321781406450821, guid: c02d8e87fcc988243958cffea2bbc913,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947630129999758912, guid: c02d8e87fcc988243958cffea2bbc913,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8636990428056761347, guid: c02d8e87fcc988243958cffea2bbc913,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2430,10 +2439,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: AntRecollectBtree
       objectReference: {fileID: 0}
+    - target: {fileID: 8636990428056761357, guid: c02d8e87fcc988243958cffea2bbc913,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636990428759804911, guid: c02d8e87fcc988243958cffea2bbc913,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636990428871321348, guid: c02d8e87fcc988243958cffea2bbc913,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8636990429402434937, guid: c02d8e87fcc988243958cffea2bbc913,
         type: 3}
       propertyPath: distanceToEat
       value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636990429402434939, guid: c02d8e87fcc988243958cffea2bbc913,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c02d8e87fcc988243958cffea2bbc913, type: 3}
@@ -2466,6 +2495,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Btree Ant Patrolling To D.Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506261676326446122, guid: 0d2993a636ecde449b1494c428fd0b5c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3865012116083361754, guid: 0d2993a636ecde449b1494c428fd0b5c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3971326886493508240, guid: 0d2993a636ecde449b1494c428fd0b5c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4563399285884448779, guid: 0d2993a636ecde449b1494c428fd0b5c,
         type: 3}
@@ -2522,6 +2566,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6165284378285252464, guid: 0d2993a636ecde449b1494c428fd0b5c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890696769582764333, guid: 0d2993a636ecde449b1494c428fd0b5c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d2993a636ecde449b1494c428fd0b5c, type: 3}
 --- !u!4 &2989962816618412073 stripped
@@ -2553,6 +2607,66 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AntSearchBaseBTree
+      objectReference: {fileID: 0}
+    - target: {fileID: 52416216672235186, guid: 42d0b60ae3ba56847b23c5a0ffc7fb44,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 739269693506912370, guid: 42d0b60ae3ba56847b23c5a0ffc7fb44,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 739269693986288722, guid: 42d0b60ae3ba56847b23c5a0ffc7fb44,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 739269694023983913, guid: 42d0b60ae3ba56847b23c5a0ffc7fb44,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 739269694094029060, guid: 42d0b60ae3ba56847b23c5a0ffc7fb44,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 739269694518005798, guid: 42d0b60ae3ba56847b23c5a0ffc7fb44,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 739269694592022523, guid: 42d0b60ae3ba56847b23c5a0ffc7fb44,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 739269694607084910, guid: 42d0b60ae3ba56847b23c5a0ffc7fb44,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 739269695272593732, guid: 42d0b60ae3ba56847b23c5a0ffc7fb44,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 739269695292997813, guid: 42d0b60ae3ba56847b23c5a0ffc7fb44,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4155057536887929189, guid: 42d0b60ae3ba56847b23c5a0ffc7fb44,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7854334901343887121, guid: 42d0b60ae3ba56847b23c5a0ffc7fb44,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8622421301818152339, guid: 42d0b60ae3ba56847b23c5a0ffc7fb44,
         type: 3}
