@@ -5,14 +5,10 @@ public class MoveToACloserPoint : BNode
 {
     NavMeshAgent agent;
     float distanceToMove = 7f;
-    Transform rayOrigin;
-    LayerMask myLayer;
 
     private void Start()
     {
         agent = (NavMeshAgent)blackboard.GetValue("navMeshAgent");
-        rayOrigin = GetComponentInChildren<Transform>();
-        myLayer = 1 << gameObject.layer;
     }
 
     public override NodeState Evaluate()
@@ -45,11 +41,6 @@ public class MoveToACloserPoint : BNode
         float angle = Random.Range(-maxAngle / 2, maxAngle / 2);
         Vector3 directionToMove = Quaternion.Euler(0, angle, 0) * directionToBase;
         float myDistanceToMove = distanceToMove;
-        /*if(Physics.Raycast(rayOrigin.position, directionToMove, 1.5f, myLayer))
-        {
-            directionToMove = Quaternion.Euler(0, 90f, 0) * directionToMove;
-            myDistanceToMove = 2f;
-        }*/
         Vector3 pointToMove = transform.position + directionToMove * myDistanceToMove;
         NavMeshHit hit;
         if (NavMesh.SamplePosition(pointToMove, out hit, 3f, NavMesh.AllAreas))
