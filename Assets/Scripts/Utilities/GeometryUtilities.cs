@@ -8,6 +8,7 @@ public static class GeometryUtilities
         float angle = 360 / nPoints * Mathf.Deg2Rad;
         for (int i = 0; i < nPoints; i++)
         {
+            Debug.Log(angle);
             float t = angle * i + angleOffset * Mathf.Deg2Rad;
             float x = radius * Mathf.Cos(t);
             float z = radius * Mathf.Sin(t);
