@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public class WaspGlobalBlackboard : GlobalBlackboard
+public class MosquitoGlobalBlackboard : GlobalBlackboard
 {
-    protected new static WaspGlobalBlackboard instance;
+    protected new static MosquitoGlobalBlackboard instance;
 
-    public new static WaspGlobalBlackboard Instance { get => instance; }
+    public new static MosquitoGlobalBlackboard Instance { get => instance; }
 
     protected override void Awake()
     {

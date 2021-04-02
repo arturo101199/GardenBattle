@@ -6,7 +6,7 @@ public class ImNearHomeCondition : Condition
     Blackboard blackboard;
     GlobalBlackboard globalBlackboard;
 
-    private void Start()
+    private void Awake()
     {
         blackboard = GetComponentInParent<Blackboard>();
         globalBlackboard = (GlobalBlackboard)blackboard.GetValue("globalBlackboard");

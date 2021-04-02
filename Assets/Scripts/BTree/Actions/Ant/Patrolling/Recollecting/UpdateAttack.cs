@@ -21,7 +21,6 @@ public class UpdateAttack : BNode
         float t = Mathf.InverseLerp(0, maxFood, foodEaten);
         float attackDamage = Mathf.Lerp(minAttackDamage, maxAttackDamage, t);
         globalBlackboard.UpdateValue("attackDamage", attackDamage);
-        print(attackDamage);
         return NodeState.SUCCESS;
     }
 

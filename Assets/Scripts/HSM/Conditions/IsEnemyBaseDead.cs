@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class AntIsEnemyBaseDead : Condition
+public class IsEnemyBaseDead : Condition
 {
     BaseManager baseManager;
     Blackboard blackboard;
@@ -17,6 +17,7 @@ public class AntIsEnemyBaseDead : Condition
     {
         if (baseManager.isBaseAlive((Vector3)globalBlackboard.GetValue("currentEnemyBase")))
             return false;
+        globalBlackboard.UpdateValue("enemyBaseFound", false);
         return true;
     }
 }
