@@ -45,7 +45,6 @@ public class AttackEnemy : BNode
             isAttacking = true;
         }
         return NodeState.RUNNING;
-
     }
 
     protected virtual void attack(Transform enemy)
