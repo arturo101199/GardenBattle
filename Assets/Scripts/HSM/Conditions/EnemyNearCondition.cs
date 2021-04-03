@@ -6,7 +6,7 @@ public class EnemyNearCondition : Condition
     [Header("Debug")]
     [SerializeField] LayerMask enemyLayer = 0;
 
-    float distanceNear = 3.5f;
+    [SerializeField] float distanceNear = 3.5f;
     Collider[] colsCache = new Collider[32];
     Blackboard blackboard;
 

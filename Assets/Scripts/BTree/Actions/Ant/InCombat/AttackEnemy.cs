@@ -3,16 +3,16 @@ using UnityEngine.AI;
 
 public class AttackEnemy : BNode
 {
-    Animator anim;
-    float attackAnimationLength = 0f;
-    NavMeshAgent agent;
-    bool isAttacking;
-    float timer = 0f;
-    float attackDamage = 20f;
+    protected Animator anim;
+    protected float attackAnimationLength = 0f;
+    protected NavMeshAgent agent;
+    protected bool isAttacking;
+    protected float timer = 0f;
+    protected float attackDamage = 20f;
 
     GlobalBlackboard globalBlackboard;
 
-    private void Start()
+    protected void Start()
     {
         anim = (Animator)blackboard.GetValue("animator");
         agent = (NavMeshAgent)blackboard.GetValue("navMeshAgent");
@@ -30,7 +30,7 @@ public class AttackEnemy : BNode
                 Transform enemy = (Transform)blackboard.GetValue("currentEnemy");
                 if (enemy == null)
                     return NodeState.SUCCESS;
-                enemy.GetComponent<IDamageable>().GetDamage(attackDamage);
+                attack(enemy);
                 return NodeState.SUCCESS;
             }
             else
@@ -46,6 +46,11 @@ public class AttackEnemy : BNode
         }
         return NodeState.RUNNING;
 
+    }
+
+    protected virtual void attack(Transform enemy)
+    {
+        enemy.GetComponent<IDamageable>().GetDamage(attackDamage);
     }
 
     public override void OnTreeEnded()

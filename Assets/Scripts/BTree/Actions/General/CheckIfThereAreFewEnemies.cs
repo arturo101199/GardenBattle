@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 
-public class ThereAreFewEnemies : BNode
+public class CheckIfThereAreFewEnemies : BNode
 {
     int minEnemies;
     int nAllies;
     GlobalBlackboard globalBlackboard;
     GameGlobalBlackboard gameGlobalBlackboard;
+
+    [SerializeField] bool desiredBool = true;
 
     void Start()
     {
@@ -17,7 +19,7 @@ public class ThereAreFewEnemies : BNode
     {
         nAllies = (int)globalBlackboard.GetValue("totalNumberOfCharacters");
         minEnemies = nAllies * 2;
-        if ((int)gameGlobalBlackboard.GetValue("totalNumberOfCharacters") <= minEnemies)
+        if (((int)gameGlobalBlackboard.GetValue("totalNumberOfCharacters") <= minEnemies) == desiredBool)
             return NodeState.SUCCESS;
         return NodeState.FAIL;
     }
