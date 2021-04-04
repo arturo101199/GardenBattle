@@ -39,7 +39,9 @@ public class GoToEnemy : BNode
         if(timer >= timeBetweenDestinations)
         {
             agent.SetDestination(enemy.position);
+            timer = 0f;
         }
+        timer += Time.deltaTime;
         return NodeState.RUNNING;
     }
 

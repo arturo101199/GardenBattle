@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class AntAttackState : State
+public class AttackState : State
 {
     [SerializeField] BTree actionTree = null;
 
