@@ -5,6 +5,12 @@ public class Projectile : MonoBehaviour
     Transform enemy;
     float speed = 5f;
     float damage = 20f;
+    ObjectPooler objectPooler = null;
+
+    private void Awake()
+    {
+        objectPooler = ObjectPooler.GetInstance();
+    }
 
     public void SetProjectileInfo(Transform enemy, float damage)
     {
@@ -42,7 +48,7 @@ public class Projectile : MonoBehaviour
 
     void disable()
     {
-        Destroy(gameObject);
+        objectPooler.ReturnToThePool(transform);
     }
 
     void damageEnemy()

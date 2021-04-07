@@ -2,8 +2,13 @@
 
 public class RangedAttackEnemy : AttackEnemy
 {
-    [SerializeField] GameObject projectileGO = null;
     [SerializeField] Transform projectileSpawn = null;
+    ObjectPooler objectPooler = null;
+
+    private void Awake()
+    {
+        objectPooler = ObjectPooler.GetInstance();
+    }
 
     protected override void attack(Transform enemy)
     {
@@ -12,7 +17,7 @@ public class RangedAttackEnemy : AttackEnemy
 
     void InstantiateProjectile(Transform enemy)
     {
-        Projectile projectile = Instantiate(projectileGO, projectileSpawn.position, Quaternion.identity).GetComponent<Projectile>();
+        Projectile projectile = objectPooler.SpawnObject("MosquitoProjectile", projectileSpawn.position, Quaternion.identity).GetComponent<Projectile>();
         projectile.SetProjectileInfo(enemy, attackDamage);
     }
 }
