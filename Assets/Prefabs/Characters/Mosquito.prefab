@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7599921192456149603}
-  - component: {fileID: 5675583023478361503}
+  - component: {fileID: 3554519826820850169}
   m_Layer: 18
   m_Name: GoToEnemy
   m_TagString: Untagged
@@ -93,7 +93,7 @@ Transform:
   m_Father: {fileID: 5087079100867473428}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5675583023478361503
+--- !u!114 &3554519826820850169
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 218310711353820191}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2963b8a06b487c947888a0ffcdf73c1c, type: 3}
+  m_Script: {fileID: 11500000, guid: d7d8ec1aad5ef9b4f83d9637b6ab45cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stoppingDistance: 10
@@ -545,7 +545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childNodes:
-  - {fileID: 5675583023478361503}
+  - {fileID: 3554519826820850169}
   - {fileID: 707168074820862555}
   - {fileID: 2784161775693260597}
   - {fileID: 6952236843561615119}

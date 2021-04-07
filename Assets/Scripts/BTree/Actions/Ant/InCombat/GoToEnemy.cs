@@ -3,14 +3,14 @@ using UnityEngine.AI;
 
 public class GoToEnemy : BNode
 {
-    float timer = 1f;
-    float timeBetweenDestinations = 1f;
-    [SerializeField] float stoppingDistance = 1.5f;
-    NavMeshAgent agent;
-    Transform enemy;
-    bool firstTime = true;
+    protected float timer = 1f;
+    protected float timeBetweenDestinations = 1f;
+    [SerializeField] protected float stoppingDistance = 1.5f;
+    protected NavMeshAgent agent;
+    protected Transform enemy;
+    protected bool firstTime = true;
 
-    private void Start()
+    protected void Start()
     {
         agent = (NavMeshAgent)blackboard.GetValue("navMeshAgent");
     }
@@ -32,7 +32,7 @@ public class GoToEnemy : BNode
             if (enemy == null)
                 return NodeState.FAIL;
         }
-        if(agent.remainingDistance <= stoppingDistance)
+        if(imNearTheEnemy())
         {
             return NodeState.SUCCESS;
         }
@@ -43,6 +43,11 @@ public class GoToEnemy : BNode
         }
         timer += Time.deltaTime;
         return NodeState.RUNNING;
+    }
+
+    protected virtual bool imNearTheEnemy()
+    {
+        return agent.remainingDistance <= stoppingDistance;
     }
 
     public override void OnTreeEnded()
