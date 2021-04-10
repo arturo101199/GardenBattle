@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class MosquitoBlackboard : Blackboard
+public class SpiderBlackboard : Blackboard
 {
     private void Awake()
     {
@@ -15,6 +15,6 @@ public class MosquitoBlackboard : Blackboard
         AddKeyValue("closerEnemyBase", Vector3.zero);
         AddKeyValue("health", 100f);
         AddKeyValue("currentEnemy", null);
-        AddKeyValue("globalBlackboard", MosquitoGlobalBlackboard.Instance);
+        AddKeyValue("globalBlackboard", SpiderGlobalBlackboard.Instance);
     }
 }
