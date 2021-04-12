@@ -6,6 +6,7 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] TerrainGenerator terrainGenerator = null;
     [SerializeField] BaseGenerator baseGenerator = null;
     [SerializeField] AntFoodGeneration antFoodGeneration = null;
+    [SerializeField] SpiderWebGeneration spiderWebGeneration = null;
 
     StarterCharactersGenerator starterCharactersGenerator;
 
@@ -15,6 +16,8 @@ public class MapGenerator : MonoBehaviour
         List<BaseInfo> placedBases = baseGenerator.PlaceBases();
         if ((int)AntGlobalBlackboard.Instance.GetValue("totalNumberOfCharacters") > 0)
             antFoodGeneration.GenerateFood();
+        if ((int)SpiderGlobalBlackboard.Instance.GetValue("totalNumberOfCharacters") > 0)
+            spiderWebGeneration.GenerateSpiderWebs();
         placeCharacters(placedBases);
     }
 

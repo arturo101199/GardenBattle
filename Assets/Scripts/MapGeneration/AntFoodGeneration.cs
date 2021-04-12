@@ -5,21 +5,25 @@ using UnityEngine.AI;
 public class AntFoodGeneration : MonoBehaviour
 {
     [SerializeField] GameObject foodPrefab = null;
-    List<Vector3> foodPositions = new List<Vector3>();
     [SerializeField] Transform foodContainer = null;
+    [SerializeField] float delta = 2.5f;
+    [SerializeField] float boundaryOffset = 1f;
 
+    List<Vector3> foodPositions = new List<Vector3>();
+    MapDividerInPoints mapDivider = null;
+
+
+    private void Awake()
+    {
+        mapDivider = GetComponent<MapDividerInPoints>();
+    }
+    
     public void GenerateFood()
     {
-        float mapScale = FindObjectOfType<TerrainGenerator>().planeScale;
-        const int mapChunkSize = 241;
-        float finalScale = (mapChunkSize-1) * mapScale;
-        int halfScale = (int)(finalScale / 2);
-        for (float i = -halfScale; i < halfScale; i += 2.5f)
+        List<Vector3> MapPoints = new List<Vector3>(mapDivider.DivideSquareMap(delta, delta, boundaryOffset));
+        foreach (Vector3 point in MapPoints)
         {
-            for (float j = -halfScale; j < halfScale; j+= 2.5f)
-            {
-                spawnFood(new Vector3(i, 0f, j));
-            }
+            spawnFood(point);
         }
         FindObjectOfType<FoodManagement>().SetFood(foodPositions);
     }
