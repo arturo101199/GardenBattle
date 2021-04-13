@@ -46,11 +46,6 @@ public class EatFood : BNode
 
     }
 
-    void updateAttack(int foodEaten)
-    {
-        
-    }
-
     public override void OnTreeEnded()
     {
         timer = 0f;

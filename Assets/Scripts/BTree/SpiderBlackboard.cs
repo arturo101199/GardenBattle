@@ -16,5 +16,6 @@ public class SpiderBlackboard : Blackboard
         AddKeyValue("health", 100f);
         AddKeyValue("currentEnemy", null);
         AddKeyValue("globalBlackboard", SpiderGlobalBlackboard.Instance);
+        AddKeyValue("currentTrapPointLocation", Vector3.zero);
     }
 }

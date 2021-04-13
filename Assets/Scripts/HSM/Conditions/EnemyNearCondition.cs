@@ -36,4 +36,3 @@ public class EnemyNearCondition : Condition
         return false;
     }
 }
-
