@@ -15,8 +15,8 @@ public class AntBackHomeState : State
 
     public override void OnStateEnter()
     {
-        Vector3 currentEnemyBase = (Vector3)globalBlackboard.GetValue("baseLocation");
-        Vector3 positionToGo = NavMeshUtilities.SamplePositionNearMe(transform.position, currentEnemyBase);
+        Vector3 homeLocation = (Vector3)globalBlackboard.GetValue("baseLocation");
+        Vector3 positionToGo = NavMeshUtilities.SamplePositionNearMe(transform.position, homeLocation);
         agent.SetDestination(positionToGo);
         base.OnStateEnter();
     }

@@ -11,6 +11,9 @@ public class FindTrapPoint : BNode
 
     public override NodeState Evaluate()
     {
+        Vector3 currentTrapPoint = (Vector3)blackboard.GetValue("currentTrapPointLocation");
+        if (!spiderWebsManagement.CheckIfPointIsUsed(currentTrapPoint) && currentTrapPoint != Vector3.zero)
+            return NodeState.SUCCESS;
         Vector3 nextTrapPoint = spiderWebsManagement.GetSpiderWebPosition();
         blackboard.UpdateValue("currentTrapPointLocation", nextTrapPoint);
         if (nextTrapPoint == Vector3.zero)

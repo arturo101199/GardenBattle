@@ -4,6 +4,7 @@ using UnityEngine;
 public class SpiderWebsManagement : MonoBehaviour
 {
     Stack<Vector3> sortedSpiderWebPositions = new Stack<Vector3>();
+    List<Vector3> positionsUsed = new List<Vector3>();
 
     public void SetSpiderWebPositions(List<Vector3> SpiderWebPositions)
     {
@@ -13,7 +14,7 @@ public class SpiderWebsManagement : MonoBehaviour
         {
             AddSpiderWebPosition(position);
         }
-        AntGlobalBlackboard.Instance.AddKeyValue("spiderWebsManagement", this);
+        SpiderGlobalBlackboard.Instance.AddKeyValue("spiderWebsManagement", this);
     }
 
     public Vector3 GetSpiderWebPosition()
@@ -26,5 +27,21 @@ public class SpiderWebsManagement : MonoBehaviour
     public void AddSpiderWebPosition(Vector3 position)
     {
         sortedSpiderWebPositions.Push(position);
+    }
+
+    public bool CheckIfPointIsUsed(Vector3 point)
+    {
+        return positionsUsed.Contains(point);
+    }
+
+    public void SetPointAsUsed(Vector3 point)
+    {
+        positionsUsed.Add(point);
+    }
+
+    public void SetPointAsUnused(Vector3 point)
+    {
+        positionsUsed.Find((value) => value == point);
+        AddSpiderWebPosition(point);
     }
 }

@@ -12,7 +12,7 @@ public class ThereAreFewEnemiesCondition : Condition
 
     private void Awake()
     {
-        blackboard = GetComponent<Blackboard>();
+        blackboard = GetComponentInParent<Blackboard>();
         globalBlackboard = (GlobalBlackboard)blackboard.GetValue("globalBlackboard");
         gameGlobalBlackboard = GameGlobalBlackboard.Instance;
     }

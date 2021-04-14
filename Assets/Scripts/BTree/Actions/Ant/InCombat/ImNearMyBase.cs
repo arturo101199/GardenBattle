@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class AntImNearMyBase : BNode
+public class ImNearMyBase : BNode
 {
     float distance = 3.5f;
     GlobalBlackboard globalBlackboard;
