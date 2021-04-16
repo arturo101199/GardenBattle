@@ -904,7 +904,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
-  distanceNear: 3.5
+  distanceNear: 4.5
 --- !u!114 &1233605125498719867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2982,7 +2982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 455f01b7bf4b9c64ab1bb89b51b2d23a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 4.5
+  distance: 5.5
   desiredBool: 0
 --- !u!1 &5679455623175852237
 GameObject:
@@ -3727,7 +3727,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
-  distanceNear: 3.5
+  distanceNear: 4.5
 --- !u!1 &7502389182211632936
 GameObject:
   m_ObjectHideFlags: 0
@@ -4693,7 +4693,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
-  distanceNear: 3.5
+  distanceNear: 4.5
 --- !u!1001 &2335066408555514751
 PrefabInstance:
   m_ObjectHideFlags: 0

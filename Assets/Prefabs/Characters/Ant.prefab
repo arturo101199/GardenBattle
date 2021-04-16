@@ -1787,6 +1787,11 @@ PrefabInstance:
       propertyPath: transitions.Array.data[1].condition
       value: 
       objectReference: {fileID: 1126163592798081349}
+    - target: {fileID: 1641054695993614120, guid: e87bbedd82a8c7843a13865cfacaffca,
+        type: 3}
+      propertyPath: distanceNear
+      value: 4.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3948414590553434434, guid: e87bbedd82a8c7843a13865cfacaffca,
         type: 3}
       propertyPath: time
@@ -1801,6 +1806,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AntAIHSM
+      objectReference: {fileID: 0}
+    - target: {fileID: 6803454470992946886, guid: e87bbedd82a8c7843a13865cfacaffca,
+        type: 3}
+      propertyPath: distance
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 8919324122463291335, guid: e87bbedd82a8c7843a13865cfacaffca,
         type: 3}
@@ -1856,6 +1866,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9042274951366920105, guid: e87bbedd82a8c7843a13865cfacaffca,
+        type: 3}
+      propertyPath: distanceNear
+      value: 4.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e87bbedd82a8c7843a13865cfacaffca, type: 3}

@@ -33,7 +33,7 @@ public class AntGlobalBlackboard : GlobalBlackboard
         AddKeyValue("maxHealth", 100f);
         AddKeyValue("attackDamage", 5f);
         AddKeyValue("minAttackDamage", 5f);
-        AddKeyValue("maxAttackDamage", 25f);
+        AddKeyValue("maxAttackDamage", 30f);
         AddKeyValue("maxFood", 20);
     }
 }

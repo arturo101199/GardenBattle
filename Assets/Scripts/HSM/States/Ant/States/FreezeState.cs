@@ -5,7 +5,7 @@ public class FreezeState : State
 {
     Freezeable freezeable;
     NavMeshAgent agent;
-    [SerializeField] Transform turnAroundPivot;
+    [SerializeField] Transform turnAroundPivot = null;
 
     protected override void Awake()
     {

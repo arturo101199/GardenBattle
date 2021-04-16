@@ -27,6 +27,6 @@ public class SpiderGlobalBlackboard : GlobalBlackboard
         AddKeyValue("baseLocation", Vector3.zero);
         AddKeyValue("enemyBaseFound", false);
         AddKeyValue("maxHealth", 100f);
-        AddKeyValue("attackDamage", 20f);
+        AddKeyValue("attackDamage", 15f);
     }
 }
