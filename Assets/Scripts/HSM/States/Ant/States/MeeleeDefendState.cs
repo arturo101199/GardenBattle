@@ -9,12 +9,14 @@ public class MeeleeDefendState : State
 
     NavMeshAgent agent;
     GlobalBlackboard globalBlackboard;
+    Animator anim;
 
     protected override void Awake()
     {
         base.Awake();
         agent = (NavMeshAgent)blackboard.GetValue("navMeshAgent");
         globalBlackboard = (GlobalBlackboard)blackboard.GetValue("globalBlackboard");
+        anim = (Animator)blackboard.GetValue("animator");
     }
 
     public override void OnStateEnter()
@@ -25,6 +27,8 @@ public class MeeleeDefendState : State
 
     void setDestination()
     {
+        anim.SetBool("isMoving", true);
+        agent.isStopped = false;
         Vector3 basePos = (Vector3)globalBlackboard.GetValue("baseLocation");
         Vector3 dirToMe = (transform.position - basePos).normalized * baseOffset;
         Vector3 directionToMove = Quaternion.Euler(0, deltaAngle, 0) * dirToMe;

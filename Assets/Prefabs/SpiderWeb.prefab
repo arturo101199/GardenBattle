@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2959966209482052764}
   - component: {fileID: 1686357299355553987}
   - component: {fileID: 5084704823281966818}
+  - component: {fileID: 1542283055323481025}
   m_Layer: 0
   m_Name: SpiderWeb
   m_TagString: Untagged
@@ -44,7 +45,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.028402528
+  m_Radius: 1.2
   m_Center: {x: 0, y: -9.313224e-10, z: 0}
 --- !u!54 &5084704823281966818
 Rigidbody:
@@ -62,6 +63,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1542283055323481025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352845986144386790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36fdf238349e34f4196ed4ca429a2bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freezeRange: 1.5
 --- !u!1 &3574574518493300276
 GameObject:
   m_ObjectHideFlags: 0

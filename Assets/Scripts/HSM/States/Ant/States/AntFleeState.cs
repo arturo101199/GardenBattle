@@ -7,13 +7,14 @@ public class AntFleeState : State
     float deltaMovement = 3f;
     float stoppingdistance = 0.5f;
     GlobalBlackboard globalBlackboard;
-
+    Animator anim;
 
     protected override void Awake()
     {
         base.Awake();
         agent = (NavMeshAgent)blackboard.GetValue("navMeshAgent");
         globalBlackboard = (GlobalBlackboard)blackboard.GetValue("globalBlackboard");
+        anim = (Animator)blackboard.GetValue("animator");
     }
 
     public override void OnStateEnter()
@@ -42,6 +43,9 @@ public class AntFleeState : State
         if (NavMesh.SamplePosition(posToMove, out hit, 3f, NavMesh.AllAreas))
         {
             agent.SetDestination(hit.position);
+            agent.isStopped = false;
+            anim.SetBool("isMoving", true);
+
         }
         else
         {

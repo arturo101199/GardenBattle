@@ -22,7 +22,7 @@ public class EnemyNearCondition : Condition
 
     void setEnemyLayer()
     {
-        enemyLayer = LayerMaskUtilities.getCharactersLayerExceptMyLayer(gameObject.layer);
+        enemyLayer = LayerMaskUtilities.GetCharactersLayerExceptMyLayer(gameObject.layer);
     }
 
     public override bool EvaluateCondition()

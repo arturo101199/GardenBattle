@@ -1,33 +1,43 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class Patrolling : SubMachineState
+public class FreezeState : State
 {
-    Animator anim;
+    Freezeable freezeable;
     NavMeshAgent agent;
+    [SerializeField] Transform turnAroundPivot;
 
     protected override void Awake()
     {
         base.Awake();
-        anim = (Animator)blackboard.GetValue("animator");
+        freezeable = GetComponentInParent<Freezeable>();
         agent = (NavMeshAgent)blackboard.GetValue("navMeshAgent");
     }
 
     public override void OnStateEnter()
     {
-        anim.SetBool("isMoving", true);
-        agent.isStopped = false;
         base.OnStateEnter();
+        agent.isStopped = true;
+        turnAround();
+
     }
 
     public override void OnStateExit()
     {
         base.OnStateExit();
-
+        freezeable.IsFrozen = false;
+        agent.isStopped = false;
+        turnAround();
     }
 
     public override void OnStateUpdate()
     {
         base.OnStateUpdate();
+    }
+
+    void turnAround()
+    {
+        turnAroundPivot.Rotate(0, 0, 180f);
+        turnAroundPivot.Translate(0f, 0.5f, 0f, Space.Self);
     }
 }

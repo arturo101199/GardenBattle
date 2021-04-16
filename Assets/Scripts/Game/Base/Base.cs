@@ -19,7 +19,7 @@ public class Base : MonoBehaviour, IDamageable
     {
         baseManager = FindObjectOfType<BaseManager>();
         baseManager.AddBase(this);
-        enemyLayer = LayerMaskUtilities.getCharactersLayerExceptMyLayer(gameObject.layer);
+        enemyLayer = LayerMaskUtilities.GetCharactersLayerExceptMyLayer(gameObject.layer);
     }
 
     private void Update()

@@ -1,10 +1,12 @@
 ﻿public class ImDeadCondition : Condition
 {
     bool dead = false;
+    Damageable damageable;
 
     private void Awake()
     {
-        GetComponentInParent<Damageable>().DeathEvent += die;
+        damageable = GetComponentInParent<Damageable>();
+        damageable.DeathEvent += die;
     }
 
     public override bool EvaluateCondition()
@@ -15,6 +17,6 @@
     void die()
     {
         dead = true;
-        GetComponentInParent<Damageable>().DeathEvent -= die;
+        damageable.DeathEvent -= die;
     }
 }

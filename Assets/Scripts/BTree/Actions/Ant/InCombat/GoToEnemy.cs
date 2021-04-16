@@ -9,10 +9,12 @@ public class GoToEnemy : BNode
     protected NavMeshAgent agent;
     protected Transform enemy;
     protected bool firstTime = true;
+    Animator anim;
 
     protected void Start()
     {
         agent = (NavMeshAgent)blackboard.GetValue("navMeshAgent");
+        anim = (Animator)blackboard.GetValue("animator");
     }
 
     public override NodeState Evaluate()
@@ -20,6 +22,7 @@ public class GoToEnemy : BNode
         if (firstTime)
         {
             agent.isStopped = false;
+            anim.SetBool("isMoving", true);
             enemy = (Transform)blackboard.GetValue("currentEnemy");
             if (enemy == null)
                 return NodeState.FAIL;

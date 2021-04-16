@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Die : State
+public class DieState : State
 {
     [SerializeField] GameObject parent = null;
     GlobalBlackboard globalBlackboard;
@@ -35,5 +35,4 @@ public class Die : State
         int numberOfAllies = (int)globalBlackboard.GetValue("totalNumberOfCharacters");
         globalBlackboard.UpdateValue("totalNumberOfCharacters", numberOfAllies - 1);
     }
-
 }

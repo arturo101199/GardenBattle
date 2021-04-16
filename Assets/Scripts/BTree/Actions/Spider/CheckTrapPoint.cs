@@ -30,7 +30,6 @@ public class CheckTrapPoint : BNode
         }
         else
         {
-            print(agent.remainingDistance + " " + agent.destination + " " + agent.transform.position + " " + agent.pathPending);
             if (!agent.pathPending && agent.remainingDistance <= distanceToSetTrap)
             {
                 isClose = true;

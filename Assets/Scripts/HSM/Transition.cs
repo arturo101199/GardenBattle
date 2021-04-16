@@ -29,6 +29,7 @@ public class Transition
     {
         activeState.OnStateExit();
         currentState.SetCurrentState(targetNode);
+        targetNode.SetParentState(currentState);
         targetNode.OnStateEnter();
     }
 

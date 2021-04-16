@@ -21,6 +21,6 @@
     {
         base.initializeBlackboard();
         AddKeyValue("baseManager", GetComponent<BaseManager>());
-        UpdateValue("totalNumberOfCharacters", 150);
+        UpdateValue("totalNumberOfCharacters", 200);
     }
 }
