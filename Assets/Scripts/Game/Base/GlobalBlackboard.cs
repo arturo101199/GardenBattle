@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class GlobalBlackboard : Blackboard
+﻿public class GlobalBlackboard : Blackboard
 {
     protected static GlobalBlackboard instance;
 
@@ -8,7 +6,6 @@ public class GlobalBlackboard : Blackboard
 
     protected virtual void Awake()
     {
-        DontDestroyOnLoad(this);
         initializeBlackboard();
     }
 
