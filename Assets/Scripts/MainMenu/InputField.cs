@@ -17,12 +17,7 @@ public class InputField : MonoBehaviour
         int amount = int.Parse(value);
         amount = Mathf.Clamp(amount, 0, 100);
         field.text = (amount.ToString());
-
-    }
-
-    public void Test()
-    {
-        print("Hola");
+        globalBlackboard.UpdateValue("totalNumberOfCharacters", amount);
     }
 
     private void OnEnable()

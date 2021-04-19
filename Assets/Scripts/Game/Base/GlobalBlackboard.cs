@@ -11,6 +11,6 @@
 
     protected virtual void initializeBlackboard()
     {
-        AddKeyValue("totalNumberOfCharacters", 50);
+        AddKeyValue("totalNumberOfCharacters", 0);
     }
 }
