@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class CharactersPicker : MonoBehaviour
 {
-    [SerializeField] InputFieldsController inputFieldsController;
-    [SerializeField] Transform cameraPivot;
+    [SerializeField] InputFieldsController inputFieldsController = null;
+    [SerializeField] Transform cameraPivot = null;
     [SerializeField] float rotationSpeed = 50f;
 
     float angleToRotate;

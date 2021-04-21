@@ -7,9 +7,8 @@ public class AntGlobalBlackboard : GlobalBlackboard
 
     public new static AntGlobalBlackboard Instance { get => instance; }
 
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
         if (instance != null && instance != this)
         {
             Destroy(this.gameObject);
@@ -20,9 +19,9 @@ public class AntGlobalBlackboard : GlobalBlackboard
         }
     }
 
-    protected override void initializeBlackboard()
+    public override void InitializeBlackboard()
     {
-        base.initializeBlackboard();
+        base.InitializeBlackboard();
         AddKeyValue("foodEaten", 0);
         AddKeyValue("antsPatrolling", 0);
         AddKeyValue("baseIsInDanger", false);

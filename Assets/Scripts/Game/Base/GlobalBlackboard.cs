@@ -4,13 +4,9 @@
 
     public static GlobalBlackboard Instance { get => instance; }
 
-    protected virtual void Awake()
+    public override void InitializeBlackboard()
     {
-        initializeBlackboard();
-    }
-
-    protected virtual void initializeBlackboard()
-    {
+        print("hola");
         AddKeyValue("totalNumberOfCharacters", 0);
     }
 }

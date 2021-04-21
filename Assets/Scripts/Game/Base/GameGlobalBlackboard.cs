@@ -4,9 +4,8 @@
 
     public new static GameGlobalBlackboard Instance { get => instance; }
 
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
         if (instance != null && instance != this)
         {
             Destroy(this.gameObject);
@@ -17,9 +16,9 @@
         }
     }
 
-    protected override void initializeBlackboard()
+    public override void InitializeBlackboard()
     {
-        base.initializeBlackboard();
+        base.InitializeBlackboard();
         AddKeyValue("baseManager", GetComponent<BaseManager>());
         UpdateValue("totalNumberOfCharacters", 200);
     }

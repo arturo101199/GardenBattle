@@ -25,4 +25,12 @@ public class Blackboard : MonoBehaviour
         }
         return value;
     }
+
+    public void ResetBlackBoard()
+    {
+        blackBoard.Clear();
+        InitializeBlackboard();
+    }
+
+    public virtual void InitializeBlackboard() { }
 }

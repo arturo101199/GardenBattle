@@ -4,7 +4,7 @@ using TMPro;
 public class InputField : MonoBehaviour
 {
     GlobalBlackboard globalBlackboard;
-    [SerializeField] TMP_InputField field;
+    [SerializeField] TMP_InputField field = null;
 
     public void SetGlobalBlackboard(GlobalBlackboard globalBlackboard)
     {

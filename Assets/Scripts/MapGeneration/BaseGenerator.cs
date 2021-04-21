@@ -7,13 +7,14 @@ public class BaseGenerator : MonoBehaviour
     [SerializeField] LayerMask groundLayer = 0;
     [SerializeField] float terrainSize = 48f;
     [SerializeField] float terrainSizeOffset = 3f; //Offset for not placing bases just on the edge of the map
-    [SerializeField] BaseInfo[] baseInfos = null;
+    [SerializeField] BasesInfo basesInfo = null;
     [SerializeField] Transform parentTransform = null;
 
     public List<BaseInfo> PlaceBases()
     {
+        basesInfo = FindObjectOfType<BasesInfo>();
         List<BaseInfo> basesPlaced = new List<BaseInfo>();
-        foreach (BaseInfo baseInfo in baseInfos)
+        foreach (BaseInfo baseInfo in basesInfo.baseInfos)
         {
             int nCharacters = (int)baseInfo.GlobalBlackboard.GetValue("totalNumberOfCharacters");
             if(nCharacters > 0)

@@ -6,9 +6,8 @@ public class MosquitoGlobalBlackboard : GlobalBlackboard
 
     public new static MosquitoGlobalBlackboard Instance { get => instance; }
 
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
         if (instance != null && instance != this)
         {
             Destroy(this.gameObject);
@@ -19,9 +18,9 @@ public class MosquitoGlobalBlackboard : GlobalBlackboard
         }
     }
 
-    protected override void initializeBlackboard()
+    public override void InitializeBlackboard()
     {
-        base.initializeBlackboard();
+        base.InitializeBlackboard();
         AddKeyValue("baseIsInDanger", false);
         AddKeyValue("currentEnemyBase", Vector3.zero);
         AddKeyValue("baseLocation", Vector3.zero);
