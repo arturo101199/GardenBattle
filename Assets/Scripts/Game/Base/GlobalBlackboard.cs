@@ -6,7 +6,6 @@
 
     public override void InitializeBlackboard()
     {
-        print("hola");
         AddKeyValue("totalNumberOfCharacters", 0);
     }
 }

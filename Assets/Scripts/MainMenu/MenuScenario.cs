@@ -10,7 +10,8 @@ public class MenuScenario : MonoBehaviour
     [SerializeField] Transform inputCanvas = null;
     [SerializeField] InputFieldsController inputFieldsController = null;
 
-    public BasesInfo BasesInfo;
+    [HideInInspector] public BasesInfo BasesInfo;
+    BaseManager baseManager;
     Transform[] characters;
 
     void Start()
@@ -22,6 +23,8 @@ public class MenuScenario : MonoBehaviour
     void placeMenuCharacters()
     {
         BasesInfo = FindObjectOfType<BasesInfo>();
+        baseManager = FindObjectOfType<BaseManager>();
+        baseManager.ResetBaseManager();
         BaseInfo[] baseInfos = BasesInfo.baseInfos;
         Vector3[] positions = GeometryUtilities.DivideCircleEquallyXZ(center.position, radius, baseInfos.Length, 0f);
         InputField[] inputFields = new InputField[baseInfos.Length];

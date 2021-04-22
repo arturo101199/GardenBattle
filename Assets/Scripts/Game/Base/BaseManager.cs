@@ -42,4 +42,9 @@ public class BaseManager : MonoBehaviour
         }
         return basePosition;
     }
+
+    public void ResetBaseManager()
+    {
+        bases.Clear();
+    }
 }
