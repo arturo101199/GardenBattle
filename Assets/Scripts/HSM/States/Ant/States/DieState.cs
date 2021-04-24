@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class DieState : State
 {
@@ -15,8 +16,10 @@ public class DieState : State
     {
         base.OnStateEnter();
         ModifyCharactersNumberOnBlackboards();
+        RemoveCharacterFromBase();
         Destroy(parent);
     }
+
 
     public override void OnStateExit()
     {
@@ -26,6 +29,12 @@ public class DieState : State
     public override void OnStateUpdate()
     {
         base.OnStateUpdate();
+    }
+
+    private void RemoveCharacterFromBase()
+    {
+        BaseManager baseManager = (BaseManager)GameGlobalBlackboard.Instance.GetValue("baseManager");
+        baseManager.RemoveCharacterFromBase(GetComponentInParent<IDamageable>(), (Vector3)globalBlackboard.GetValue("baseLocation"));
     }
 
     void ModifyCharactersNumberOnBlackboards()

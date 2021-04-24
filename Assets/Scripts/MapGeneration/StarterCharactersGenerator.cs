@@ -15,7 +15,7 @@ public class StarterCharactersGenerator
 
         float angleOffset = 0f;
         int loops = 0;
-        while (this.nCharacters > 0 && loops < 15) 
+        while (this.nCharacters > 0 && loops < 15)
         {
             this.nCharacters = createCharacters(8, 2f, angleOffset);
             angleOffset += 15f;
@@ -28,16 +28,15 @@ public class StarterCharactersGenerator
         int charactersNotPlaced = 0;
         while (nCharacters > 0)
         {
-            if (nCharacters < charactersPerCircle)
-            {
-                charactersPerCircle = nCharacters;
-            }
+            charactersPerCircle = Mathf.Clamp(charactersPerCircle, 0, nCharacters);
             nCharacters -= charactersPerCircle;
+
             Vector3[] positions = GeometryUtilities.DivideCircleEquallyXZ(baseLocation, radius, charactersPerCircle, angleOffset);
             for (int i = 0; i < charactersPerCircle; i++)
             {
-                if (!spawnCharacter(character, positions[i], baseLocation)) charactersNotPlaced += 1;
+                if (!trySpawnCharacter(character, positions[i], baseLocation)) charactersNotPlaced += 1;
             }
+
             charactersPerCircle = (int)(charactersPerCircle * 1.25f);
             radius += 1.4f;
             angleOffset += 15f;
@@ -45,13 +44,15 @@ public class StarterCharactersGenerator
         return charactersNotPlaced;
     }
 
-    bool spawnCharacter(GameObject character, Vector3 position, Vector3 baseLocation)
+    bool trySpawnCharacter(GameObject characterPrefab, Vector3 position, Vector3 baseLocation)
     {
         NavMeshHit hit;
         if(NavMesh.SamplePosition(position, out hit, 3f, NavMesh.AllAreas))
         {
             Quaternion lookAt = Quaternion.LookRotation(hit.position - baseLocation);
-            Object.Instantiate(character, hit.position, lookAt);
+            GameObject character = Object.Instantiate(characterPrefab, hit.position, lookAt);
+            BaseManager baseManager = (BaseManager)GameGlobalBlackboard.Instance.GetValue("baseManager");
+            baseManager.AddCharacterToBase(character.GetComponent<IDamageable>(), baseLocation);
             return true;
         }
         else

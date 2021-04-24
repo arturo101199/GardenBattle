@@ -43,6 +43,26 @@ public class BaseManager : MonoBehaviour
         return basePosition;
     }
 
+    public void AddCharacterToBase(IDamageable character, Vector3 myBasePosition)
+    {
+        foreach (Base myBase in bases)
+        {
+            if (myBase.transform.position == myBasePosition)
+            {
+                myBase.AddCharacter(character);
+            }
+        }
+    }
+
+    public void RemoveCharacterFromBase(IDamageable character, Vector3 myBasePosition)
+    {
+        foreach (Base myBase in bases)
+        {
+            if (myBase.transform.position == myBasePosition)
+                myBase.RemoveCharacter(character);
+        }
+    }
+
     public void ResetBaseManager()
     {
         bases.Clear();

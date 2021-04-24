@@ -8,20 +8,18 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] AntFoodGeneration antFoodGeneration = null;
     [SerializeField] SpiderWebGeneration spiderWebGeneration = null;
 
+    List<BaseInfo> placedBases;
     StarterCharactersGenerator starterCharactersGenerator;
 
     void Start()
     {
-        terrainGenerator.GenerateMap();
-        List<BaseInfo> placedBases = baseGenerator.PlaceBases();
-        if ((int)AntGlobalBlackboard.Instance.GetValue("totalNumberOfCharacters") > 0)
-            antFoodGeneration.GenerateFood();
-        if ((int)SpiderGlobalBlackboard.Instance.GetValue("totalNumberOfCharacters") > 0)
-            spiderWebGeneration.GenerateSpiderWebs();
-        placeCharacters(placedBases);
+        generateTerrain();
+        placeBases();
+        generateSpecialObjects();
+        placeCharacters();
     }
 
-    void placeCharacters(List<BaseInfo> placedBases)
+    void placeCharacters()
     {
         starterCharactersGenerator = new StarterCharactersGenerator();
         foreach (BaseInfo placedBase in placedBases)
@@ -32,4 +30,21 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
+    void generateTerrain()
+    {
+        terrainGenerator.GenerateMap();
+    }
+
+    void generateSpecialObjects()
+    {
+        if ((int)AntGlobalBlackboard.Instance.GetValue("totalNumberOfCharacters") > 0)
+            antFoodGeneration.GenerateFood();
+        if ((int)SpiderGlobalBlackboard.Instance.GetValue("totalNumberOfCharacters") > 0)
+            spiderWebGeneration.GenerateSpiderWebs();
+    }
+
+    void placeBases()
+    {
+        placedBases = baseGenerator.PlaceBases();
+    }
 }
