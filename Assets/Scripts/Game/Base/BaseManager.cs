@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BaseManager : MonoBehaviour
 {
+    public Action OneRemainingBaseEvent;
     List<Base> bases = new List<Base>();
 
     public void AddBase(Base myBase)
@@ -23,6 +25,15 @@ public class BaseManager : MonoBehaviour
     public void RemoveBase(Base myBase)
     {
         bases.Remove(myBase);
+        if(bases.Count < 2)
+        {
+            OneRemainingBaseEvent?.Invoke();
+        }
+    }
+
+    public Base GetRemainingBase()
+    {
+        return bases[0];
     }
 
     public Vector3 findClosestBase(Vector3 position, Vector3 myBasePosition)

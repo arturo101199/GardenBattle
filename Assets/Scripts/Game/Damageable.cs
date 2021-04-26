@@ -9,7 +9,6 @@ public class Damageable : MonoBehaviour, IDamageable
     private void Awake()
     {
         blackboard = GetComponent<Blackboard>();
-        print(blackboard);
     }
 
     public void GetDamage(float damage)
