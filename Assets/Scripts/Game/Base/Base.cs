@@ -53,7 +53,6 @@ public class Base : MonoBehaviour, IDamageable
 
     private void killCharacters()
     {
-        print(characters.Count);
         foreach (IDamageable character in characters)
         {
             character.GetDamage(1000f);

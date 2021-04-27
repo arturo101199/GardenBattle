@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 7f5a35eb73b73b542875f20aaa1899b0,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2452,28 +2452,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseInfos:
   - GlobalBlackboard: {fileID: 1711825991}
-    BasePrefab: {fileID: 3239355242695379679, guid: fb90140752a51ed4e944303495295d80,
+    BasePrefab: {fileID: 5069655520854130999, guid: 8c3000ada645504449e99e4f3ad24271,
       type: 3}
     CharacterPrefab: {fileID: 3333537019187392727, guid: 057cc4c5438e6b944814df2d7d05a0a3,
       type: 3}
     CharacterMenuPrefab: {fileID: 115922330543402969, guid: 2ace81382b9319e4ca171c49fc6c6325,
       type: 3}
   - GlobalBlackboard: {fileID: 367697402}
-    BasePrefab: {fileID: 903704742685487947, guid: 0fe509e2af7267e4dba31a25406ce6f7,
+    BasePrefab: {fileID: 6404541984956091216, guid: 0fe509e2af7267e4dba31a25406ce6f7,
       type: 3}
     CharacterPrefab: {fileID: 2782762360172380601, guid: ccadc93117fbf554295cb52390f67f8a,
       type: 3}
     CharacterMenuPrefab: {fileID: 6625501159989329685, guid: 54f156862363c2049b014266bf7bcef6,
       type: 3}
   - GlobalBlackboard: {fileID: 2065190864}
-    BasePrefab: {fileID: 903704742685487947, guid: 590510cca92cc2a4da3ec6dc18d4cac8,
+    BasePrefab: {fileID: 2093628037826099880, guid: 590510cca92cc2a4da3ec6dc18d4cac8,
       type: 3}
     CharacterPrefab: {fileID: 7812499205357487871, guid: 632014871496ee84490d800ae80945c4,
       type: 3}
     CharacterMenuPrefab: {fileID: 7254629641805699370, guid: c84cfa5e8801769489454a17c5b2b431,
       type: 3}
   - GlobalBlackboard: {fileID: 1658714463}
-    BasePrefab: {fileID: 903704742685487947, guid: 993b1c496d243604ca7a067fbb82805f,
+    BasePrefab: {fileID: 209396994650431653, guid: 993b1c496d243604ca7a067fbb82805f,
       type: 3}
     CharacterPrefab: {fileID: 5822604796383761129, guid: 839f8b3d7fb0b5f44b4ce52484491267,
       type: 3}

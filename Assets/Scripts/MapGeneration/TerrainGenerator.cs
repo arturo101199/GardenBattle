@@ -17,6 +17,7 @@ public class TerrainGenerator : MonoBehaviour
     public float persistance;
     public float lacunarity;
 
+    [SerializeField] bool useDebugSeed;
     public int seed;
     public Vector2 offset;
 
@@ -28,6 +29,7 @@ public class TerrainGenerator : MonoBehaviour
 
     public void GenerateMap()
     {
+        if (!useDebugSeed) seed = Random.Range(0, int.MaxValue);
         float[,] noiseMap = Noise.GenerateNoiseMap(mapChunkSize, mapChunkSize, seed, noiseScale, octaves, persistance, lacunarity, offset);
 
         Color[] colourMap = new Color[mapChunkSize * mapChunkSize];
