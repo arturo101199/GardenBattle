@@ -21,14 +21,14 @@ public class MeeleeDefendState : State
 
     public override void OnStateEnter()
     {
+        anim.SetBool("isMoving", true);
+        agent.isStopped = false;
         setDestination();
         base.OnStateEnter();
     }
 
     void setDestination()
     {
-        anim.SetBool("isMoving", true);
-        agent.isStopped = false;
         Vector3 basePos = (Vector3)globalBlackboard.GetValue("baseLocation");
         Vector3 dirToMe = (transform.position - basePos).normalized * baseOffset;
         Vector3 directionToMove = Quaternion.Euler(0, deltaAngle, 0) * dirToMe;

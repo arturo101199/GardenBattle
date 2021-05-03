@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class AntFleeState : State
+public class FleeState : State
 {
     NavMeshAgent agent = null;
     float deltaMovement = 3f;
