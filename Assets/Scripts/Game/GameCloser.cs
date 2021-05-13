@@ -8,10 +8,36 @@ public class GameCloser : MonoBehaviour
     [SerializeField] GameObject winCanvasGO;
     [SerializeField] TextMeshProUGUI winnerText;
 
+    [SerializeField] float timeBeforeEnd = 5f;
+    bool isEnding = false;
+
+    float timer = 0f;
+
     private void Awake()
     {
         baseManager = FindObjectOfType<BaseManager>();
         baseManager.OneRemainingBaseEvent += endGame;
+    }
+
+    private void Start()
+    {
+        timer = 0f;
+        isEnding = false;
+    }
+
+    private void Update()
+    {
+        if (isEnding)
+        {
+            if(timer >= timeBeforeEnd)
+            {
+                LoadMainMenu();
+            }
+            else
+            {
+                timer += Time.unscaledDeltaTime;
+            }
+        }
     }
 
     void endGame()
@@ -20,7 +46,7 @@ public class GameCloser : MonoBehaviour
         Base winnerBase = baseManager.GetRemainingBase();
         string winner = LayerMask.LayerToName(winnerBase.gameObject.layer);
         winnerText.SetText(winner + "s win");
-        Invoke("LoadMainMenu", 5f);
+        isEnding = true;
         baseManager.OneRemainingBaseEvent -= endGame;
     }
 
