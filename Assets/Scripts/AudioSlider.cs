@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class AudioSlider : MonoBehaviour
 {
-    [SerializeField] AudioManager audioManager;
+    [SerializeField] AudioManager audioManager = null;
     Slider slider;
 
     private void Awake()
@@ -18,7 +18,6 @@ public class AudioSlider : MonoBehaviour
 
     public void OnValueChange(float value)
     {
-        print(value);
         PlayerPrefs.SetFloat("Volume", value);
         audioManager.SetVolume(value);
     }

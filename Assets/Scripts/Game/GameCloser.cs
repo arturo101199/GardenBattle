@@ -4,10 +4,10 @@ using TMPro;
 public class GameCloser : MonoBehaviour
 {
     BaseManager baseManager;
-    [SerializeField] GameObject winCanvasGO;
-    [SerializeField] TextMeshProUGUI winnerText;
-    [SerializeField] GameSpeedController gameSpeedController;
-    [SerializeField] SceneTransitioner sceneTransitioner;
+    [SerializeField] GameObject winCanvasGO = null;
+    [SerializeField] TextMeshProUGUI winnerText = null;
+    [SerializeField] GameSpeedController gameSpeedController = null;
+    [SerializeField] SceneTransitioner sceneTransitioner = null;
 
     [SerializeField] float timeBeforeEnd = 5f;
     bool isEnding = false;
@@ -32,7 +32,7 @@ public class GameCloser : MonoBehaviour
         {
             if(timer >= timeBeforeEnd)
             {
-                LoadMainMenu();
+                loadMainMenu();
             }
             else
             {
@@ -50,6 +50,13 @@ public class GameCloser : MonoBehaviour
 
     }
 
+    public void EndFromSettingsMenu()
+    {
+        lockGameSpeed();
+        loadMainMenu();
+        baseManager.OneRemainingBaseEvent -= endGame;
+    }
+
     void displayWinner()
     {
         winCanvasGO.SetActive(true);
@@ -64,7 +71,7 @@ public class GameCloser : MonoBehaviour
         gameSpeedController.LockSpeed();
     }
 
-    void LoadMainMenu()
+    void loadMainMenu()
     {
         sceneTransitioner.LoadScene(0);
     }

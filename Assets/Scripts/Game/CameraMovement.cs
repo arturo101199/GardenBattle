@@ -8,9 +8,9 @@ public class CameraMovement : MonoBehaviour
     int screenHeight;
     int screenWidth;
     float lastPosX;
-    CinemachineVirtualCamera camera;
+    CinemachineVirtualCamera gameCamera;
 
-    [SerializeField] Transform rotationPivot;
+    [SerializeField] Transform rotationPivot = null;
 
     [Header("Terrain characteristics")]
 
@@ -35,7 +35,7 @@ public class CameraMovement : MonoBehaviour
 
     private void Awake()
     {
-        camera = GetComponent<CinemachineVirtualCamera>();
+        gameCamera = GetComponent<CinemachineVirtualCamera>();
     }
 
     void Update()
@@ -100,6 +100,6 @@ public class CameraMovement : MonoBehaviour
     private void calculateZoom()
     {
         float wheelAxis = Input.GetAxis("Mouse ScrollWheel");
-        camera.m_Lens.FieldOfView = Mathf.Clamp(camera.m_Lens.FieldOfView - wheelAxis * zoomSpeed * Time.unscaledDeltaTime, minFov, maxFov);
+        gameCamera.m_Lens.FieldOfView = Mathf.Clamp(gameCamera.m_Lens.FieldOfView - wheelAxis * zoomSpeed * Time.unscaledDeltaTime, minFov, maxFov);
     }
 }

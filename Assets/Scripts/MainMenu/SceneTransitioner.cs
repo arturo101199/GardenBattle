@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransitioner : MonoBehaviour
 {
-    [SerializeField] Animator panelAnim;
+    [SerializeField] Animator panelAnim = null;
     [SerializeField] float transitionTime = 1f;
     int index = 0;
 

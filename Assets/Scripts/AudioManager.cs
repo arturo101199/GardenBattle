@@ -3,22 +3,22 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    AudioSource audio;
+    AudioSource audioSource;
     float maxVolume = 0f;
 
     private void Awake()
     {
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Start()
     {
-        maxVolume = audio.volume;
-        audio.volume = PlayerPrefs.GetFloat("Volume") * maxVolume;
+        maxVolume = audioSource.volume;
+        audioSource.volume = PlayerPrefs.GetFloat("Volume") * maxVolume;
     }
 
     public void SetVolume(float volume)
     {
-        audio.volume = maxVolume * volume;
+        audioSource.volume = maxVolume * volume;
     }
 }

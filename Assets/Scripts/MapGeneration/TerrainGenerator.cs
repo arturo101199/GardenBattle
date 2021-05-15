@@ -17,7 +17,7 @@ public class TerrainGenerator : MonoBehaviour
     public float persistance;
     public float lacunarity;
 
-    [SerializeField] bool useDebugSeed;
+    [SerializeField] bool useDebugSeed = false;
     public int seed;
     public Vector2 offset;
 

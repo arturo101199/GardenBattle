@@ -5,7 +5,7 @@ public class MenuScenario : MonoBehaviour
     //public MenuCharacterHolder[] characters = null;
     [SerializeField] float radius = 5;
     [SerializeField] Transform center = null;
-    [SerializeField] Transform camera = null;
+    [SerializeField] Transform closeCamera = null;
     [SerializeField] GameObject inputFieldPrefab = null;
     [SerializeField] Transform inputCanvas = null;
     [SerializeField] InputFieldsController inputFieldsController = null;
@@ -45,9 +45,9 @@ public class MenuScenario : MonoBehaviour
 
     void placeCloseCamera()
     {
-        camera.position = characters[0].position + (characters[0].position - center.position).normalized * 2.2f;
-        camera.position = new Vector3(camera.position.x, 1.3f, camera.position.z);
-        Quaternion lookAt = Quaternion.LookRotation(center.position - camera.position);
-        camera.rotation = lookAt;
+        closeCamera.position = characters[0].position + (characters[0].position - center.position).normalized * 2.2f;
+        closeCamera.position = new Vector3(closeCamera.position.x, 1.3f, closeCamera.position.z);
+        Quaternion lookAt = Quaternion.LookRotation(center.position - closeCamera.position);
+        closeCamera.rotation = lookAt;
     }
 }
