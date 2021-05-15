@@ -5,9 +5,11 @@ public class GameSpeedController : MonoBehaviour
     [SerializeField] Transform[] UIPositions = null;
     [SerializeField] Transform selectedImage = null;
 
+    bool isLocked;
+
     void Start()
     {
-        
+        isLocked = false;
     }
 
     void Update()
@@ -23,8 +25,14 @@ public class GameSpeedController : MonoBehaviour
 
     }
 
+    public void LockSpeed()
+    {
+        isLocked = true;
+    }
+
     public void SetGameSpeed(int speed)
     {
+        if (isLocked) return;
         Time.timeScale = Mathf.Pow(2, speed);
         selectedImage.position = UIPositions[speed].position;
     }

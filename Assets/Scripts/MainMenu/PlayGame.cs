@@ -1,10 +1,17 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayGame : MonoBehaviour
 {
     [SerializeField] MenuScenario menuScenario = null;
     [SerializeField] GameObject notEnoughCharacterTypesGO = null;
+    [SerializeField] SceneTransitioner sceneTransitioner = null;
+    [SerializeField] InputFieldsController inputFieldsController = null;
+    bool isTransitioning;
+
+    private void Start()
+    {
+        isTransitioning = false;
+    }
 
     public void TryPlayGame()
     {
@@ -21,9 +28,11 @@ public class PlayGame : MonoBehaviour
         }
         if(nTypes > 1)
         {
-            //Load Game Scene
+            if (isTransitioning) return;
             GameGlobalBlackboard.Instance.UpdateValue("totalNumberOfCharacters", nTotalCharacters);
-            SceneManager.LoadScene(1);
+            sceneTransitioner.LoadScene(1);
+            isTransitioning = true;
+            inputFieldsController.BlockFields();
             return;
         }
         else

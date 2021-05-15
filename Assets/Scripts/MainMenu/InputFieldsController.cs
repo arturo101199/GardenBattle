@@ -15,6 +15,14 @@ public class InputFieldsController : MonoBehaviour
         numberOfInputFields = inputFields.Length;
     }
 
+    public void BlockFields()
+    {
+        foreach (InputField field in inputFields)
+        {
+            field.BlockField();
+        }
+    }
+
     public void ChangeInputField(int dir)
     {
         inputFields[currentIndex].gameObject.SetActive(false);

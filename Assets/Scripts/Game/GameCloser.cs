@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class GameCloser : MonoBehaviour
 {
     BaseManager baseManager;
     [SerializeField] GameObject winCanvasGO;
     [SerializeField] TextMeshProUGUI winnerText;
+    [SerializeField] GameSpeedController gameSpeedController;
+    [SerializeField] SceneTransitioner sceneTransitioner;
 
     [SerializeField] float timeBeforeEnd = 5f;
     bool isEnding = false;
@@ -41,17 +42,30 @@ public class GameCloser : MonoBehaviour
     }
 
     void endGame()
+    {        
+        isEnding = true;
+        displayWinner();
+        lockGameSpeed();
+        baseManager.OneRemainingBaseEvent -= endGame;
+
+    }
+
+    void displayWinner()
     {
         winCanvasGO.SetActive(true);
         Base winnerBase = baseManager.GetRemainingBase();
         string winner = LayerMask.LayerToName(winnerBase.gameObject.layer);
         winnerText.SetText(winner + "s win");
-        isEnding = true;
-        baseManager.OneRemainingBaseEvent -= endGame;
+    }
+
+    void lockGameSpeed()
+    {
+        gameSpeedController.SetGameSpeed(0);
+        gameSpeedController.LockSpeed();
     }
 
     void LoadMainMenu()
     {
-        SceneManager.LoadScene(0);
+        sceneTransitioner.LoadScene(0);
     }
 }

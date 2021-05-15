@@ -6,6 +6,11 @@ public class InputField : MonoBehaviour
     GlobalBlackboard globalBlackboard;
     [SerializeField] TMP_InputField field = null;
 
+    private void Start()
+    {
+        field.enabled = true;
+    }
+
     public void SetGlobalBlackboard(GlobalBlackboard globalBlackboard)
     {
         this.globalBlackboard = globalBlackboard;
@@ -22,6 +27,11 @@ public class InputField : MonoBehaviour
             field.text = amount.ToString();
             globalBlackboard.UpdateValue("totalNumberOfCharacters", amount);
         }
+    }
+
+    public void BlockField()
+    {
+        field.enabled = false;
     }
 
     private void OnEnable()
