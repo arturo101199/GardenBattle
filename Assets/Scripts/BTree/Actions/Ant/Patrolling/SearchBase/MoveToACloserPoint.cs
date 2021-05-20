@@ -23,6 +23,13 @@ public class MoveToACloserPoint : BNode
             if (tryToMove(maxAngle, directionToBase))
                 return NodeState.SUCCESS;
         }
+        Vector3 newBasePos = new Vector3(basePos.x, transform.position.y, basePos.z);
+        Vector3 newDirectionToBase = (newBasePos - transform.position).normalized;
+        for (int i = 0; i < 20; i++)
+        {
+            if (tryToMove(maxAngle, newDirectionToBase))
+                return NodeState.SUCCESS;
+        }
         print("I could not move to next point");
         return NodeState.SUCCESS;
     }
