@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 9209936038308625962}
   m_Layer: 15
   m_Name: AntBase
-  m_TagString: Untagged
+  m_TagString: Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

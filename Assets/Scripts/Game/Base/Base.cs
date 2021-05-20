@@ -6,8 +6,11 @@ public class Base : MonoBehaviour, IDamageable
 {
     [Header("Debug")]
     [SerializeField] bool imInDanger;
-
     [SerializeField] float health;
+
+    bool imAttacked;
+    float timer = 0f;
+    float timeAttacked = 4f;
 
     BaseManager baseManager;
     Collider[] colsCache = new Collider[1];
@@ -32,7 +35,16 @@ public class Base : MonoBehaviour, IDamageable
 
     private void Update()
     {
-        detectEnemies();
+        if (imAttacked)
+        {
+            if(timer >= timeAttacked)
+            {
+                imAttacked = false;
+            }
+            timer += Time.deltaTime;
+        }
+        else
+            detectEnemies();
     }
 
     public void SetGlobalBlackboard(GlobalBlackboard globalBlackboard)
@@ -43,7 +55,10 @@ public class Base : MonoBehaviour, IDamageable
     public void GetDamage(float damageValue)
     {
         health -= damageValue;
-        if(health < 0f)
+        imAttacked = true;
+        setInDanger(true);
+        timer = 0f;
+        if (health < 0f)
         {
             killCharacters();
             baseManager.RemoveBase(this);
@@ -74,13 +89,17 @@ public class Base : MonoBehaviour, IDamageable
         int n = Physics.OverlapSphereNonAlloc(transform.position, radiusOfDetection, colsCache, enemyLayer);
         if(n > 0 && !imInDanger)
         {
-            globalBlackboard.UpdateValue("baseIsInDanger", true);
-            imInDanger = true;
+            setInDanger(true);
         }
         else if(n == 0 && imInDanger)
         {
-            globalBlackboard.UpdateValue("baseIsInDanger", false);
-            imInDanger = false;
+            setInDanger(false);
         }
+    }
+
+    void setInDanger(bool inDanger)
+    {
+        globalBlackboard.UpdateValue("baseIsInDanger", inDanger);
+        imInDanger = inDanger;
     }
 }

@@ -9,6 +9,9 @@ public class BaseGenerator : MonoBehaviour
     [SerializeField] float terrainSizeOffset = 3f; //Offset for not placing bases just on the edge of the map
     [SerializeField] BasesInfo basesInfo = null;
     [SerializeField] Transform parentTransform = null;
+    [SerializeField] float baseSeparation = 50f;
+
+    Collider[] colsCache = new Collider[16];
 
     public List<BaseInfo> PlaceBases()
     {
@@ -34,17 +37,31 @@ public class BaseGenerator : MonoBehaviour
     {
         Vector3 randomPosition = RandomUtilities.GenerateRandomInsideRectangleXZ(Vector3.zero, terrainSize - terrainSizeOffset, terrainSize - terrainSizeOffset);
         NavMeshHit hit;
-        bool isValidPosition = NavMesh.SamplePosition(randomPosition, out hit, 3f, NavMesh.AllAreas);
+        int tries = 0;
+        bool isValidPosition = NavMesh.SamplePosition(randomPosition, out hit, 3f, NavMesh.AllAreas) && !IsAnotherBaseNear(hit.position);
         while (!isValidPosition)
         {
+            tries++;
             randomPosition = RandomUtilities.GenerateRandomInsideRectangleXZ(Vector3.zero, terrainSize - terrainSizeOffset, terrainSize - terrainSizeOffset);
-            isValidPosition = NavMesh.SamplePosition(randomPosition, out hit, 3f, NavMesh.AllAreas);
+            isValidPosition = NavMesh.SamplePosition(randomPosition, out hit, 3f, NavMesh.AllAreas) && !IsAnotherBaseNear(hit.position);
         }
+        print(tries);
         return hit.position;
     }
 
     void rotateBase(Transform myBase)
     {
         TransformUtilities.RotateObjectPerpendicularToTheGround(myBase, groundLayer);
+    }
+
+    bool IsAnotherBaseNear(Vector3 pos)
+    {
+        int cols = Physics.OverlapSphereNonAlloc(pos, baseSeparation, colsCache);
+        for (int i = 0; i < cols; i++)
+        {
+            if (colsCache[i].CompareTag("Base"))
+                return true;
+        }
+        return false;
     }
 }
